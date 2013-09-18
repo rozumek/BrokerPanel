@@ -1,0 +1,7 @@
+<?php echo $this->form;?>
+
+<a href="<?php echo $this->url(array(
+    'controller' => 'users',
+    'action' => 'loginidentity',
+    'id' => $this->itemData['id']
+));?>"><?php echo $this->translate('LOGIN_IDENTITY');?></a>

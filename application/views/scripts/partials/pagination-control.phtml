@@ -1,0 +1,60 @@
+<?php if ($this->pageCount):?>
+<?php
+    // you need to add each of the request parameters to url
+    $params = Zend_Controller_Front::getInstance()->getRequest()->getPost();
+
+    // remove the system parameters
+    unset($params['module']);
+    unset($params['controller']);
+    unset($params['action']);
+    unset($params['limit']);
+?>
+    <div class="pagination-control">
+
+        <?php if(isset($this->first)):?>
+            <a class="button first" href="<?php echo $this->url(array_merge(
+                $params, array('page' => $this->first))); ?>">
+                |&lt;
+            </a>
+         <?php else: ?>
+            <span class="button first disabled">|&lt</span>
+        <?php endif; ?>
+        
+        <?php if (isset($this->previous)): ?>
+            <a class="button previous" href="<?php echo $this->url(array_merge(
+                $params, array('page' => $this->previous))); ?>">
+                &lt
+            </a>
+        <?php else: ?>
+            <span class="button previous disabled">&lt</span>
+        <?php endif; ?>
+
+            <span><?php echo $this->translate('PAGE');?>
+                <strong><?php echo $this->current ?></strong>
+                /
+                <?php echo $this->pageCount;?>
+            </span>
+
+        <?php if (isset($this->next)): ?>
+            <a class="button next" href="<?php echo $this->url(array_merge($params, array('page' => $this->next))); ?>">
+                &gt;
+            </a>
+        <?php else: ?>
+            <span class="button next disabled">&gt;</span>
+        <?php endif; ?>
+            
+        <?php if (isset($this->last)): ?>
+            <a class="button last" href="<?php echo $this->url(array_merge($params, array('page' => $this->last))); ?>">
+                &gt;|
+            </a>
+        <?php else: ?>
+            <span class="button last disabled">&gt;|</span>
+        <?php endif; ?>
+            
+        <span class="pagination-limit">
+            <form method="post" action="">
+                <?php echo $this->formPaginationLimit($this->itemCountPerPage, $this->translate('LIMIT')); ?>
+            </form> 
+        </span>
+    </div>
+<?php endif; ?>

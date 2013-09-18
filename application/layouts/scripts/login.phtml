@@ -1,0 +1,32 @@
+<?php echo $this->doctype();?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
+    <head>
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headTitle(); ?>        
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <?php echo $this->headLink()
+               ->prependStylesheet($this->baseUrl().'/css/general.css')
+               ->appendStylesheet($this->baseUrl().'/css/admin.css'); ?>
+        <?php echo $this->jQuery();?>
+        <?php echo $this->headScript(); ?>
+    </head>
+    <body>          
+        <div id="all">            
+            <div id="header">
+                <div class="inner">
+                    <?php echo $this->partial('partials/header.phtml'); ?> 
+                </div>
+            </div>
+            <div id="main">
+                <div class="inner">
+                    <?php echo $this->placeholder('system-messages');?>
+                    <?php echo $this->layout()->content; ?>
+                    <div id="footer">
+                        <?php echo $this->translate('PANEL_FOOTER');?> <?php echo $this->getHelper('serverUrl')->getHost(); ?>
+                    </div>
+                </div>                
+            </div>
+        </div>            
+    </body>
+</html>

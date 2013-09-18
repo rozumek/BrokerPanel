@@ -1,0 +1,21 @@
+<?php echo $this->form?>
+<div class="wrapper-border">
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th><?php echo $this->translate('EMAIL');?></th>
+            <th><?php echo $this->translate('CREATED');?></th>
+            <th><?php echo $this->translate('ACTIONS');?></th>
+        </tr>
+    </thead>
+    <tbody><?php echo $this->partialLoop('account-requests/partials/table-row.phtml', $this->paginator); ?></tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml');?>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</div>

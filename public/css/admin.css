@@ -1,0 +1,383 @@
+body{
+    background: #252525;
+    font: normal 11px 'Droid Sans';
+}
+
+a{
+    color: #797979;
+    font-weight: bold;
+}
+
+.wrapper-border{
+    border: 1px solid #E3E3E3;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 20px 0px;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+/*==========================ALL======================================*/
+#all{
+    margin: 0 auto;
+    width: 950px;
+    background: #ffffff;
+}
+
+/*==========================HEADER===================================*/
+#header{
+    height: 92px;
+    background: #3C3C3C url(../images/admin/top_bg.png);
+    color: #F7F7F7;
+    font: normal 14px 'Droid Sans';
+}
+
+#header .logo{
+    float: left;
+    height: 50px;
+}
+
+#header .inner{    
+    background: url(../images/admin/header_backgr.png) no-repeat right center;
+    padding: 30px;
+}
+
+#header .titles{
+    margin: 10px 0px 0px 120px;
+}
+
+#header .title{
+    font: normal 14px 'Open Sans';    
+}
+
+#header .subtitle{
+    font: normal 10px 'Droid Sans'; 
+    color: #696969;
+} 
+
+.languages-list{
+    float:right;
+    background: #ffffff;
+    overflow: hidden;
+    padding: 2px 0px;
+}
+
+.languages-list a{
+    float: left;
+    height: 14px;
+    margin: 0px 3px
+}
+
+/*==========================FOOTER===============================*/
+
+#footer{
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+    font: bold 10px 'Droid Sans';
+    padding: 15px;
+    color: #696969;
+    margin-top: 100px;
+}
+
+
+/*==========================NAVIGATION===============================*/
+#navigation{
+    height: 76px;
+    overflow: hidden;
+    position: relative;    
+    background: #555555 url(../images/admin/menu_belt_bottom.png);
+}
+
+#navigation > ul {
+    background: url(../images/admin/menu_belt_top.png) repeat-x;
+    height: 37px;
+}
+
+#navigation ul {
+    list-style: none;
+    overflow: hidden;    
+}
+
+#navigation ul a {
+    color: #F4F4F4;
+    text-decoration: none;
+    font: normal 10px/24px 'Open Sans';
+}
+
+#navigation ul li {
+    float: left;
+    padding: 3px 15px;
+    margin: 3px 0px;
+    background: url(../images/admin/menu_item_separator.png) 100% center no-repeat;
+}
+
+#navigation > ul li:last-child{
+    background-image: none;
+}
+    
+#navigation > ul > li:last-child{
+    float: right;
+}
+
+#navigation > ul > li > ul {
+    height: 39px;
+}
+
+#navigation > ul > li ul {
+    display: none;    
+    width: 100%;
+}
+
+#navigation ul > li.active > a {
+    background-color:  #3B3B3B;
+    border-radius: 5px;
+    line-height: 25px;;
+    display: block;
+    padding: 0px 15px;
+}
+
+#navigation > ul > li.active ul{
+    display: block;
+    position: absolute;
+    left: 0px;
+    top:37px;
+}
+
+
+/*==========================MAIN=====================================*/
+#main{
+    background: url(../images/admin/content_bg.png) repeat-x;
+}
+
+#main .inner {
+    padding: 50px 40px    
+}
+
+#main .title{
+    height: 60px;
+    font: normal 18px 'Droid Sans';
+    color: #606060;
+}
+
+#main h2{
+    color: #7F7E7E;
+    font: bold 14px 'Droid Sans';
+    margin-bottom: 20px
+}
+
+/*==========================FORMS====================================*/
+form{
+    overflow: hidden;
+}
+dl {
+    
+}
+
+dl dt{
+    width: 170px;
+    float: left;
+    font: bold 10px Verdana;
+    color: #262626;
+    height: 17px;
+    padding-top: 6px;
+}
+
+dl dd{
+    margin-bottom: 5px;
+    min-height: 24px;
+    line-height: 24px;
+}
+
+input[type="text"], select,
+input[type="password"], textarea {
+    border: 1px solid #C2C2C2;
+    border-radius: 4px;
+    font: normal 12px 'Droid Sans';
+    padding: 4px;
+    width: 150px;    
+}
+
+input[type="text"], select, input[type="password"] {
+    height: 18px;
+}
+
+input[type="checkbox"]{
+    margin: 5px 0 0 0;
+}
+
+form dd label{
+    float: left;
+    margin-right: 8px;
+    height: 24px;
+}
+
+form dd label input[type="radio"]{
+    margin-right: 3px;
+    height: 24px;
+    float: left;
+}
+
+select{
+    height: 26px;
+    width: 160px;
+}
+
+input[type="submit"]{
+    border-radius: 4px;
+    border:none;
+    background: #7D7D7D;
+    color:#ffffff;
+    font: normal 12px 'Droid Sans';
+    padding: 3px 5px;
+    margin-top: 2px;    
+}
+
+textarea{    
+    height: 50px
+}
+
+/*==========================TABLES====================================*/
+
+table{
+    width: 100%;    
+    border-collapse: collapse;
+}
+
+table tbody td, table tfoot.format td{
+    border: 1px solid #D9D9D9;
+    padding: 20px 15px;
+    font: normal 11px 'Droid Sans';    
+}
+
+table td a{    
+    font-weight: bold;
+}
+
+table thead tr th{
+    border: 1px solid #4A4A4A;
+    background: #555555;
+    height: 37px;
+    color: #ffffff;
+    background: #636363 url(../images/admin/menu_belt_top.png) bottom repeat-x;
+}
+
+table thead tr th{
+  
+}
+
+table tbody tr:hover{
+    background: #E4ECEB !important;
+}
+
+table tbody tr.odd{
+    background: #ECECEC;
+}
+
+table tbody tr.even{
+    background: #F4F4F4;
+}
+
+.filter-form-horizontal dd{
+    float:left;
+    margin-right: 30px;
+    margin-left: 10px;
+}
+
+.filter-form-horizontal dl {
+    width: 100%;
+}
+
+.filter-form-horizontal dt {
+    width: auto !important;
+}
+
+
+.filter-form-horizontal #search-element{
+    margin-right: 0px;
+}
+
+/*==========================TABLES====================================*/
+.pagination-control {
+    font: normal 11px 'Droid Sans';
+    color: #606060;
+    float: right;
+    margin-top: 20px;
+}
+
+.pagination-control a{
+    text-decoration: none;
+}
+
+.pagination-control .button{
+    border: 1px solid #D2D2D2;
+    border-radius: 4px;
+    line-height: 20px;
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    background: #F5F5F5;
+}
+
+.pagination-limit{
+    float:right;
+}
+
+.pagination-limit select{
+    height: 22px;
+    width: 100px;
+    padding: 3px;
+    font: normal 10px 'Droid Sans';
+    color: #A9A9A9;
+    margin-left: 3px;
+}
+
+/*==========================LOGIN FORM====================================*/
+.login-form{
+    margin: 50px auto;
+    width: 320px;
+    border-radius: 6px;
+    padding: 30px;
+    border: 1px solid #4A4A4A;
+}
+
+.login-form dl{
+    width: 310px;
+}
+
+.login-form dl dt{
+    width: 150px !important;
+}
+
+
+/*==========================BROKER STATISTICS====================================*/
+.broker{
+    width: 210px;
+    float:left;    
+}
+
+.broker > a{
+    float: right;
+    margin-right: 10px;
+}
+
+.broker .border{
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #535353;
+    border-radius: 5px;
+}
+
+.broker-statistics{
+    overflow: hidden;
+    margin: 20px 0px;
+}
+
+.broker label{
+    font-weight: bold;
+}

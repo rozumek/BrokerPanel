@@ -1,0 +1,20 @@
+<?php echo $this->form?>
+<div class="wrapper-border">
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th><?php echo $this->translate('TURNOVER');?></th>
+            <th><?php echo $this->translate('Broker');?></th>
+        </tr>
+    </thead>
+    <tbody><?php echo $this->partialLoop('stock-orders/partials/table-row-rank.phtml', $this->paginator); ?></tbody>
+    <tfoot>
+        <tr>
+            <td colspan="11">
+                <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml');?>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</div>

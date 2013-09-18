@@ -1,0 +1,37 @@
+<?php echo $this->form?>
+<div class="wrapper-border">
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th><?php echo $this->translate('TIMESTAMP');?></th>
+            <th><?php echo $this->translate('CUSTOMER');?></th>
+            <th><?php echo $this->translate('ORDER_TYPE');?></th>
+            <th><?php echo $this->translate('LIMIT_VALUE');?></th>
+            <th><?php echo $this->translate('LIMIT_VALUE_TYPE');?></th>
+            <th><?php echo $this->translate('NUMBER');?></th>
+            <th><?php echo $this->translate('TICKER');?></th>
+            <th><?php echo $this->translate('STOPLOSS_VALUE');?></th>
+            <th><?php echo $this->translate('STOCKPRICE_NOW');?></th>
+            <th><?php echo $this->translate('BROKER');?></th>
+            <th><?php echo $this->translate('ACTIONS');?></th>
+        </tr>
+    </thead>
+    <tbody><?php echo $this->partialLoop('stock-orders/partials/table-row.phtml', $this->paginator); ?></tbody>
+    <tfoot>
+        <tr>
+            <td colspan="12">
+                <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml');?>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+    
+    <?php if($this->paginator->count() > 0):?>
+        <a href="<?php echo $this->url(array(
+            'action' => 'export'            
+        ), null, true);?>?<?php echo http_build_query(array('filters' => $this->form->getValues()));?>">
+            <?php echo $this->translate('EXPORT');?>
+        </a>
+    <?php endif;?>
+</div>

@@ -1,0 +1,86 @@
+<span class="right"><?php echo $this->translate('WELCOME');?> <strong><?php echo $this->userName;?></strong>!</span>
+
+<h1><?php echo $this->translate('BROKER_STATISTICS');?></h1>
+<div class="broker-statistics">
+<?php if(!empty($this->brokerOfADay)):?>
+    <div class="broker day">
+        <div class="border">
+            <h2><?php echo $this->translate('BROKER_OF_A_DAY');?></h2>
+            <div class="data">
+                <label><?php echo $this->translate('NAME');?>:</label>
+                <span><?php echo $this->brokerOfADay->broker_name;?></span>
+                <br/>
+                <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
+                <span>kr <?php echo number_format($this->brokerOfADay->sum);?></span>            
+            </div>
+        </div>
+        <a href="<?php echo $this->url(array(
+            'module' => 'default',
+            'controller' => 'stock-orders',
+            'action' => 'rank',
+            'type' => 'day'
+        ), null, true);?>"><?php echo $this->translate('CLICK_TO_SEE_RANKING');?></a>
+    </div>
+<?php endif; ?>
+<?php if(!empty($this->brokerOfAWeek)):?>
+    <div class="broker week">
+        <div class="border">
+            <h2><?php echo $this->translate('BROKER_OF_A_WEEK');?></h2>
+            <div class="data">
+                <label><?php echo $this->translate('NAME');?>:</label>
+                <span><?php echo $this->brokerOfAWeek->broker_name;?></span>
+                <br/>
+                <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
+                <span>kr <?php echo number_format($this->brokerOfAWeek->sum);?></span>
+            </div>
+        </div>        
+        <a href="<?php echo $this->url(array(
+            'module' => 'default',
+            'controller' => 'stock-orders',
+            'action' => 'rank',
+            'type' => 'week'
+        ), null, true);?>"><?php echo $this->translate('CLICK_TO_SEE_RANKING');?></a>
+    </div>
+<?php endif; ?>
+<?php if(!empty($this->brokerOfAMonth)):?>
+    <div class="broker month">        
+        <div class="border">
+            <h2><?php echo $this->translate('BROKER_OF_A_MONTH');?></h2>
+            <div class="data">
+                <label><?php echo $this->translate('NAME');?>:</label>
+                <span><?php echo $this->brokerOfAMonth->broker_name;?></span>
+                <br/>
+                <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
+                <span>kr <?php echo number_format($this->brokerOfAMonth->sum);?></span>
+            </div>
+        </div>
+        <a href="<?php echo $this->url(array(
+            'module' => 'default',
+            'controller' => 'stock-orders',
+            'action' => 'rank',
+            'type' => 'month'
+        ), null, true);?>"><?php echo $this->translate('CLICK_TO_SEE_RANKING');?></a>
+    </div>
+<?php endif; ?>
+<?php if(!empty($this->brokerOfAYear)):?>
+    <div class="broker year">     
+        <div class="border">
+            <h2><?php echo $this->translate('BROKER_OF_A_YEAR');?></h2>
+            <div class="data">
+                <label><?php echo $this->translate('NAME');?>:</label>
+                <span><?php echo $this->brokerOfAYear->broker_name;?></span>
+                <br/>
+                <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
+                <span>kr <?php echo number_format($this->brokerOfAYear->sum);?></span>
+            </div>
+        </div>
+        <a href="<?php echo $this->url(array(
+            'module' => 'default',
+            'controller' => 'stock-orders',
+            'action' => 'rank',
+            'type' => 'year'
+        ), null, true);?>"><?php echo $this->translate('CLICK_TO_SEE_RANKING');?></a>
+    </div>
+<?php endif; ?>
+</div>
+

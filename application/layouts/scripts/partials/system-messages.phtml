@@ -1,0 +1,16 @@
+<?php if(!empty($this->messages)):?>
+
+<div class="messages">
+<?php foreach ($this->messages as $type => $messages):?>
+    <?php foreach ($messages as $message):?>
+    <div class="message <?php echo Core_Log_Messages::resolve($type);?>">
+        <span>
+            <b><?php echo ucfirst($this->translate(Core_Log_Messages::resolve($type)));?></b>
+            <?php echo $message;?>
+        </span>
+    </div>        
+    <?php endforeach;?>
+<?php endforeach;?>
+</div>
+
+<?php endif;?>

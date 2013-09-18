@@ -1,0 +1,9 @@
+<div class="login-form">
+    <?php echo $this->form;?>
+    <a href="<?php echo $this->url(array(
+        'controller' => 'index',
+        'action' => 'accountrequest'
+    ), null, true);?>">
+        <?php echo $this->translate('ASK_FOR_ACCOUNT');?>
+    </a>
+</div>

@@ -1,0 +1,112 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font: normal 12px Arial;    
+}
+
+.wrapper{
+    overflow: hidden;
+}
+
+.left{
+    float: left !important;
+}
+
+.right{
+    float: right !important;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.full-width {
+    width: 100% !important;
+    max-width: 780px;
+}
+
+.disabled{
+    background: silver !important;
+    cursor: auto !important;
+    color: #ffffff !important;     
+}
+
+.form-date-select .day{
+    width: 50px;
+}
+
+.form-date-select .month{
+    width: 50px;
+}
+
+.form-date-select .year{
+    width: 60px;
+}
+
+
+/*==========================SYSTEM MESSAGES=================================*/
+.message {
+	position : relative;
+	display : inline-block;
+	margin : 0 0 20px 0;
+	padding : 0 0 0 35px;
+	clear : both;
+	cursor : pointer;
+	zoom: 1;
+    border-radius: 6px;
+}
+
+.message:hover {
+	opacity : 0.7;
+	filter : alpha(opacity=70);
+}
+
+.message span {
+	display : block;
+	background : url(../images/icons/system-icon.png) no-repeat 98% center;
+	padding : 10px 0;
+	font : 12/1.3em Arial;
+}
+
+.message.inner {
+	margin : 0 0 20px;
+}
+
+.message.red, .message.emergency, .message.alert, .message.critical, .message.error {
+	display : block;
+	background : url(../images/icons/icon-error.png) no-repeat 10px 8px #F8E9E9;
+	border : 1px solid #E4BBBC;
+	color : #b80000;
+}
+
+.message.green, .message.success {
+	display : block;
+	background : url(../images/icons/icon-succes.png) no-repeat 10px 8px #EBF9E2;
+	border : 1px solid #BEE4A5;
+	color : #6aa500;
+}
+
+.message.blue, .message.info, .message.debug, .message.access, .message.transact {
+	display : block;
+	background : url(../images/icons/icon-info.png) no-repeat 10px 8px #E9F3F8;
+	border : 1px solid #BBD7E4;
+	color : #136bc5;
+}
+
+.message.orange, .message.warning, .message.notice {
+	display : block;
+	background : url(../images/icons/icon-warning.png) no-repeat 10px 8px #FFF8D8;
+	border : 1px solid #F3D97E;
+	color : #ed9d12;
+}
+
+.readonly{
+    color: #999999;
+}
