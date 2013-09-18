@@ -45,11 +45,6 @@ abstract class Core_Acl_Abstract extends Zend_Acl{
     protected $_superRole = 4;
     
     /**
-     *
-     */
-    abstract public function __construct();
-    
-    /**
      * 
      * @return bool
      */

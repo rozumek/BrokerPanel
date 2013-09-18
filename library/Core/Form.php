@@ -16,7 +16,7 @@ class Core_Form extends Zend_Form
      */
     public function setValues($data)
     {
-        if($data){
+        if (is_array($data)) {
             foreach($data as $name => $value){
                 if($this->getElement($name)){
                     $this->getElement($name)->setValue($value);
