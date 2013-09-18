@@ -51,18 +51,6 @@ abstract class Core_Acl_Abstract extends Zend_Acl{
     
     /**
      * 
-     * @return Core_Acl_Abstract
-     */
-    abstract public static function getInstance();
-    
-    /**
-     * 
-     * @param Core_Acl_Abstract
-     */
-    abstract public function setInstance($instance);
-    
-    /**
-     * 
      * @return bool
      */
     public function issetInstance(){

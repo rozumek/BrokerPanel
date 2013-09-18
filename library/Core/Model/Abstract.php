@@ -12,12 +12,7 @@ abstract class Core_Model_Abstract implements Core_Model_Interface{
      *
      * @var Zend_Exception 
      */
-    protected $_lastException = null;        
-    
-    /**
-     * 
-     */
-    abstract public function __construct();
+    protected $_lastException = null;
 
     /**
      * 

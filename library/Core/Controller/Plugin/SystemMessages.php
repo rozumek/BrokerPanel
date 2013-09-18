@@ -37,7 +37,8 @@ class Core_Controller_Plugin_SystemMessages extends Zend_Controller_Plugin_Abstr
     public function postDispatch(\Zend_Controller_Request_Abstract $request) {
         $messageQueue = Core_Application_MessagesQueue::getInstance();
         
-        if(Zend_Registry::offsetExists('Zend_Translate') && ($translator = Zend_Registry::get('Zend_Translate'))instanceof Zend_Translate){
+        
+        if(Zend_Registry::getInstance()->offsetExists('Zend_Translate') && ($translator = Zend_Registry::get('Zend_Translate'))instanceof Zend_Translate){
             $messageQueue->setTranslator($translator);
         }
         

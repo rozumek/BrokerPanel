@@ -79,16 +79,6 @@ INSERT INTO `routes` (`id`, `routename`, `route`, `type`, `module`, `controller`
 (102, 'default-stock-orders-export', '/stock-orders-export/', '', 'default', 'stock-orders', 'export', '', '', '', 'en');
 
 --
--- Zrzut danych tabeli `user_account_requests`
---
-
-INSERT INTO `user_account_requests` (`id`, `email`, `created`) VALUES
-(1, 'rozumek2000@wp.pl', '2013-03-26 17:51:10'),
-(3, 'pavelo@wp.pl', '2013-03-26 17:56:50'),
-(4, 'jare@wo.pl', '2013-03-27 17:27:59'),
-(5, 'qwe@qwe.pl', '2013-03-27 17:28:16');
-
---
 -- Zrzut danych tabeli `users`
 --
 

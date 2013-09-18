@@ -181,7 +181,7 @@ class Application_Model_Roles extends Core_Model_Db_Abstract implements Core_Acl
      */
     public function getRoles() 
     {
-        return $this->getRowset();
+        return $this->getRowset(array(), 'id ASC');
     }
 
     /**

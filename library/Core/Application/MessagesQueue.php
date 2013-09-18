@@ -59,7 +59,7 @@ class Core_Application_MessagesQueue extends Zend_Session_Namespace{
      * 
      * @return Core_Application_MessagesQueue
      */
-    public function getInstance(){
+    public static function getInstance(){
         if(self::$_instance === null){
             throw new Core_Application_MessagesQueue_NotInitalizedException;
         }
