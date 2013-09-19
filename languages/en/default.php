@@ -99,5 +99,11 @@ return array(
     '\'%value%\' does not appear to be an integer' => '\'%value%\' does not appear to be an integer',
     '\'%value%\' does not appear to be a float' => '\'%value%\' does not appear to be a float',
     'A record matching \'%value%\' was found' => 'A record matching \'%value%\' was found',
-    'EXPORT' => 'export data'
+    'EXPORT' => 'export data',
+    'FEE' => 'Fee',
+    'CLIENTS' => 'Clients',
+    'CLIENT' => 'Client',
+    'ADD_CLIENT' => 'Add Client',
+    'EDIT_CLIENT' => 'Edit Client',
+    'VIEW_CLIENT' => 'View Client',
 );

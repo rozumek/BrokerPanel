@@ -5,14 +5,13 @@
         <tr>
             <th><?php echo $this->translate('ID');?></th>
             <th><?php echo $this->translate('NAME');?></th>
-            <th><?php echo $this->translate('USERNAME');?></th>
-            <th><?php echo $this->translate('ROLE');?></th>
-            <th><?php echo $this->translate('ACTIVE');?></th>
-            <th><?php echo $this->translate('CREATED');?></th>
+            <th><?php echo $this->translate('EMAIL');?></th>
+            <th><?php echo $this->translate('FEE');?></th>
+            <th><?php echo $this->translate('BROKER');?></th>
             <th><?php echo $this->translate('ACTIONS');?></th>
         </tr>
     </thead>
-    <tbody><?php echo $this->partialLoop('users/partials/table-row.phtml', $this->paginator); ?></tbody>
+    <tbody><?php echo $this->partialLoop('clients/partials/table-row.phtml', $this->paginator); ?></tbody>
     <tfoot>
         <tr>
             <td colspan="6">

@@ -66,7 +66,34 @@
                     <visible>false</visible>
                 </edit>
             </pages>
-        </stock-orders>        
+        </stock-orders>  
+        <clients>
+            <label>CLIENTS</label>            
+            <route>default-clients-index</route>
+            <resource>default:clients</resource>
+            <privilege>index</privilege>
+            <pages>
+                <preview>
+                    <label>LIST</label>            
+                    <route>default-clients-index</route>
+                    <resource>default:clients</resource>
+                    <privilege>index</privilege>
+                </preview>
+                <add>
+                    <label>ADD_CLIENT</label>
+                    <route>default-clients-add</route>                    
+                    <resource>default:clients</resource>
+                    <privilege>add</privilege>
+                </add>
+                <edit>
+                    <label>EDIT_CLIENT</label>
+                    <route>default-clients-edit</route>
+                    <resource>default:clients</resource>
+                    <privilege>edit</privilege>
+                    <visible>false</visible>
+                </edit>
+            </pages>
+        </clients>      
         <logout>
             <label>LOGOUT</label>
             <route>default-index-logout</route>            

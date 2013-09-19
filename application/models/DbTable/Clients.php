@@ -1,12 +1,12 @@
 <?php
 
-class Application_Model_DbTable_Users extends Core_Model_Db_Table_Abstract
+class Application_Model_DbTable_Clients extends Core_Model_Db_Table_Abstract
 {
     /**
      *
      * @var string 
      */
-    protected $_name = 'users';
+    protected $_name = 'clients';
     
     /**
      *
@@ -17,14 +17,14 @@ class Application_Model_DbTable_Users extends Core_Model_Db_Table_Abstract
     /**
      * 
      */
-    protected $_rowClass = 'Application_Model_DbTable_Row_User';
+    protected $_rowClass = 'Application_Model_DbTable_Row_Client';
     
     /**
      *
      * @var array 
      */
     protected $_dependentTables = array(
-        'Application_Model_DbTable_Users'
+        'Application_Model_DbTable_Clients'
     );
     
     /**
@@ -32,18 +32,12 @@ class Application_Model_DbTable_Users extends Core_Model_Db_Table_Abstract
      * @var array 
      */
     protected $_referenceMap = array(
-        'Roles' => array(
+        'Broker' => array(
             'columns'           => array('role'),
-            'refTableClass'     => 'Application_Model_DbTable_Roles',
-            'refColumns'        => array('id'),
-            'onDelete'          => self::RESTRICT,            
-        ),
-        'Parent' => array(
-            'columns'           => array('parent'),
             'refTableClass'     => 'Application_Model_DbTable_Users',
             'refColumns'        => array('id'),
             'onDelete'          => self::RESTRICT,            
-        )
+        ),
     );
     
     /**
@@ -58,7 +52,7 @@ class Application_Model_DbTable_Users extends Core_Model_Db_Table_Abstract
     {
         $query = $this->select(true)
                 ->setIntegrityCheck(false)
-                ->joinInner('roles', 'roles.id = '.$this->_name.'.role', 'roles.name as rolename')
+                ->joinInner('users', 'users.id = '.$this->_name.'.broker', 'users.name as broker_name')
                 ->limit($offset, $limit)
                 ;        
         
@@ -70,33 +64,17 @@ class Application_Model_DbTable_Users extends Core_Model_Db_Table_Abstract
             }
         }
         
-        if(isset($filters['username']) && !empty($filters['username'])){
-            $query->where('LOWER(username) LIKE ?', '%'.strtolower($filters['username']).'%');
-        }
-        
         if(isset($filters['name']) && !empty($filters['name'])){
             $query->where('LOWER(name) LIKE ?', '%'.strtolower($filters['name']).'%');
         }
         
         if(isset($filters['email']) && !empty($filters['email'])){
             $query->where('LOWER(email) LIKE ?', '%'.strtolower($filters['email']).'%');
-        }
+        }              
         
-        if(isset($filters['active']) && ($filters['active'] == '1' || $filters['active'] == '0')){
-            $query->where('active = ?', $filters['active']);
-        }
-        
-        if(isset($filters['role']) && !empty($filters['role'])){
-            $query->where('role = ?', $filters['role']);
-        }
-        
-        if(isset($filters['not_role']) && !empty($filters['not_role'])){
-            $query->where('role != ?', $filters['not_role']);
-        }   
-        
-        if(isset($filters['parent']) && !empty($filters['parent'])){
-            $query->where($this->_name.'.parent = ?', $filters['parent']);
-        }                
+        if(isset($filters['broker']) && !empty($filters['broker'])){
+            $query->where('broker = ?', $filters['broker']);
+        }                            
         
         if(!empty($sort)){
             $query->order($sort);

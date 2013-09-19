@@ -1,12 +1,12 @@
 <?php
 
 class Application_Form_StockOrder extends Aktiv_User_Form
-{      
-    
+{
+
     public function init()
     {
         $this->initFormSettings();
-        
+
         //add form elements
         $this->addCustomer()
                 ->addTicker()
@@ -18,44 +18,44 @@ class Application_Form_StockOrder extends Aktiv_User_Form
                 ->addStockPriceNow()
                 ->addBroker(true)
                 ->addNotes()
-                ->addSave(true);        
-    }        
-    
+                ->addSave(true);       
+    }
+
     /**
-     * 
+     *
      * @return \Application_Form_User
      */
     public function setEditForm()
-    {                
+    {
         $this->getElement('broker');
-             
+
         if(!$this->getElement('timestamp')){
             $this->addTimestamp();
             $this->getElement('timestamp')->setOrder(0);
-        }                
-        
+        }
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Application_Form_User
      */
     public function setFilterableForm()
-    {        
+    {
         parent::setFilterableForm();
-        
+
         if(!$this->getElement('date_from')){
             $this->addDateFrom()
                     ->addDateTo();
         }
-        
+
         $this->removeElement('type');
         $this->addType('select');
-        
+
         $this->getElement('customer')->setRequired(false);
         $this->getElement('broker')->setRequired(false);
-        
+
         $this->removeElements(
             array(
                 'notes',
@@ -64,10 +64,10 @@ class Application_Form_StockOrder extends Aktiv_User_Form
                 'number',
                 'ticker',
                 'limit_value',
-                'limit_value_type'                
+                'limit_value_type'
             )
         );
-        
+
         return $this;
     }
 

@@ -7,30 +7,30 @@ class Aktiv_Form_Element_CustomerAutocomplete extends ZendX_JQuery_Form_Element_
      * @var array
      */
     protected $_data = array();
-    
+
     /**
-     * 
+     *
      * @param mixed $spec
      * @param mixed $options
      */
-    public function __construct($spec, $options = null) 
-    {        
+    public function __construct($spec, $options = null)
+    {
         parent::__construct($spec, $options);
-        
+
         $this->setJQueryParam('data', $this->getAutocompleteData());
     }
-    
+
     /**
-     * 
+     *
      * @return array
      */
     public function getAutocompleteData()
     {
         if(empty($this->_data)){
-            $stockOrdersModel = new Application_Model_StockOrders();
-            $this->_data = $stockOrdersModel->getCustomers();
+            $clientsModel = new Application_Model_Clients();
+            $this->_data = $clientsModel->getClientsList('created DESC');
         }
-        
+
         return $this->_data;
     }
 }

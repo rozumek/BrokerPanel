@@ -98,5 +98,11 @@ return array(
     '\'%value%\' is not a valid email address in the basic format local-part@hostname' => '\'%value%\' er ikke en gyldig e-postadresse i grunnleggende formatet local-part@hostname',
     '\'%value%\' does not appear to be an integer' => '\'%value%\' ikke synes å være et heltall',
     '\'%value%\' does not appear to be a float' => '\'%value%\' ikke ut til å være en float',
-    'A record matching \'%value%\' was found' => 'A record matching \'%value%\' ble funnet'
+    'A record matching \'%value%\' was found' => 'A record matching \'%value%\' ble funnet',
+    'Fee' => 'Avgift',
+    'CLIENTS' => 'Kunder',
+    'CLIENT' => 'Kunde',
+    'ADD_CLIENT' => 'Legg Kunde',
+    'EDIT_CLIENT' => 'Rediger Kunde',
+    'VIEW_CLIENT' => 'Se Kunde',
 );
