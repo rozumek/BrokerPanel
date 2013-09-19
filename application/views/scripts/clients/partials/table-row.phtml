@@ -1,0 +1,59 @@
+<tr class="<?php echo ($this->partialCounter%2)?'even':'odd';?>">        
+    <td><?php echo $this->id; ?></td>
+    <td><?php echo $this->name; ?></td>
+    <td><?php echo $this->username; ?></td>
+    <td><?php echo $this->rolename; ?></td>  
+    <td>
+        <?php if(Core_Acl::isUserAllowed('default:users', 'changestate')):?>
+        <a href="<?php echo $this->url(
+            array(
+                'module'=>'default',
+                'controller'=> 'users', 
+                'action'=>'changestate', 
+                'id' => $this->id
+            )
+        );?>">
+            <?php echo $this->translate(($this->active)?'YES':'NO'); ?>
+        </a>
+        <?php else:?>
+            <?php echo $this->translate(($this->active)?'YES':'NO'); ?>
+        <?php endif;?>
+    </td>     
+    <td><?php echo $this->created; ?></td>        
+    <td>
+        <?php if(Core_Acl::isUserAllowed('default:users', 'edit')):?>
+        <a href="<?php echo $this->url(
+            array(
+                'controller'=> 'users', 
+                'action'=>'edit', 
+                'id' => $this->id
+            ),
+            null, 
+            true
+        );?>"><?php echo $this->translate('EDIT'); ?></a>
+        <?php endif;?>
+        <?php if(!Core_Acl::isUserAllowed('default:users', 'edit') && Core_Acl::isUserAllowed('default:user', 'view')):?>
+        <a href="<?php echo $this->url(
+            array(
+                'controller'=> 'users', 
+                'action'=>'view', 
+                'id' => $this->id
+            ),
+            null, 
+            true
+        );?>"><?php echo $this->translate('VIEW');?></a>
+        <?php endif;?>
+        <?php if(Core_Acl::isUserAllowed('default:users', 'delete')):?>
+        &nbsp;
+        <a href="<?php echo $this->url(
+            array(
+                'controller'=> 'users', 
+                'action'=>'delete', 
+                'id' => $this->id
+            ),
+            null, 
+            true
+        );?>"><?php echo $this->translate('DELETE'); ?></a>  
+        <?php endif;?>
+    </td>
+</tr>

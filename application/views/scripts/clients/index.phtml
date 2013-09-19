@@ -1,0 +1,24 @@
+<?php echo $this->form?>
+<div class="wrapper-border">
+<table>
+    <thead>
+        <tr>
+            <th><?php echo $this->translate('ID');?></th>
+            <th><?php echo $this->translate('NAME');?></th>
+            <th><?php echo $this->translate('USERNAME');?></th>
+            <th><?php echo $this->translate('ROLE');?></th>
+            <th><?php echo $this->translate('ACTIVE');?></th>
+            <th><?php echo $this->translate('CREATED');?></th>
+            <th><?php echo $this->translate('ACTIONS');?></th>
+        </tr>
+    </thead>
+    <tbody><?php echo $this->partialLoop('users/partials/table-row.phtml', $this->paginator); ?></tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml');?>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</div>
