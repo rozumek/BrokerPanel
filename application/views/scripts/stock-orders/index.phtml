@@ -13,6 +13,7 @@
             <th><?php echo $this->translate('TICKER');?></th>
             <th><?php echo $this->translate('STOPLOSS_VALUE');?></th>
             <th><?php echo $this->translate('STOCKPRICE_NOW');?></th>
+            <th><?php echo $this->translate('FEE_INCOME');?></th>
             <th><?php echo $this->translate('BROKER');?></th>
             <th><?php echo $this->translate('ACTIONS');?></th>
         </tr>
@@ -20,16 +21,16 @@
     <tbody><?php echo $this->partialLoop('stock-orders/partials/table-row.phtml', $this->paginator); ?></tbody>
     <tfoot>
         <tr>
-            <td colspan="12">
+            <td colspan="13">
                 <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml');?>
             </td>
         </tr>
     </tfoot>
 </table>
-    
+
     <?php if($this->paginator->count() > 0):?>
         <a href="<?php echo $this->url(array(
-            'action' => 'export'            
+            'action' => 'export'
         ), null, true);?>?<?php echo http_build_query(array('filters' => $this->form->getValues()));?>">
             <?php echo $this->translate('EXPORT');?>
         </a>

@@ -51,7 +51,15 @@ class Application_Model_DbTable_StockOrders extends Core_Model_Db_Table_Abstract
         $query = $this->select(true)
                 ->setIntegrityCheck(false)
                 ->joinInner('users', 'users.id = ' . $this->_name . '.broker', 'users.name as broker_name')
-                ->joinInner('clients', 'clients.id = ' . $this->_name . '.customer', 'clients.name as customer_name')
+                ->joinInner(
+                    'clients',
+                    'clients.id = ' . $this->_name . '.customer',
+                    array(
+                        'clients.name as customer_name',
+                        'clients.fee as customer_fee',
+                        '(' . $this->_name . '.stockprice_now * ' . $this->_name . '.number * clients.fee) as fee_income'
+                    )
+                )
                 ->limit($offset, $limit)
         ;
 
