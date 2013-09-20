@@ -36,6 +36,12 @@ class Application_Model_DbTable_StockOrders extends Core_Model_Db_Table_Abstract
             'refTableClass' => 'Application_Model_DbTable_Users',
             'refColumns' => array('id'),
             'onDelete' => self::RESTRICT,
+        ),
+        'Client' => array(
+            'columns' => array('customer'),
+            'refTableClass' => 'Application_Model_DbTable_Clients',
+            'refColumns' => array('id'),
+            'onDelete' => self::RESTRICT,
         )
     );
 

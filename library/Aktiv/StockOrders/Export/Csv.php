@@ -4,7 +4,7 @@ class Aktiv_StockOrders_Export_Csv extends Core_Export_Csv
 {
     /**
      *
-     * @var array 
+     * @var array
      */
     protected $_headers = array(
         'Timestamp',
@@ -16,17 +16,18 @@ class Aktiv_StockOrders_Export_Csv extends Core_Export_Csv
         'Ticker',
         'Stoploss Value',
         'Transaction Price',
+        'Fee Income',
         'Broker',
         'Notes'
     );
-    
+
     /**
      *
      * @var array
      */
     protected $_filterColumns = array(
         'timestamp',
-        'customer',
+        'customer_name',
         'type',
         'limit_value',
         'limit_value_type',
@@ -34,12 +35,13 @@ class Aktiv_StockOrders_Export_Csv extends Core_Export_Csv
         'ticker',
         'stoploss_value',
         'stockprice_now',
+        'fee_income',
         'broker_name',
-        'notes'              
-    );  
-    
+        'notes'
+    );
+
     /**
-     * 
+     *
      * @param array $row
      * @return array
      */
@@ -50,13 +52,13 @@ class Aktiv_StockOrders_Export_Csv extends Core_Export_Csv
                 case 'type':
                     $row[$key] = _T(Aktiv_Dictionary_StockOrderTypes::getInstance()->getByCode($value));
                     break;
-                
+
                 case 'limit_value_type':
                     $row[$key] = _T(Aktiv_Dictionary_LimitValueTypes::getInstance()->getByCode($value));
                     break;
             }
         }
-        
+
         return parent::_prepareData($row);
     }
 }
