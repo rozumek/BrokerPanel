@@ -105,4 +105,5 @@ return array(
     'ADD_CLIENT' => 'Legg Kunde',
     'EDIT_CLIENT' => 'Rediger Kunde',
     'VIEW_CLIENT' => 'Se Kunde',
+    'FEE_INCOME' => 'Gebyrinntekter'
 );
