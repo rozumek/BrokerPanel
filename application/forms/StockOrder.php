@@ -1,10 +1,8 @@
 <?php
 
-class Application_Form_StockOrder extends Aktiv_User_Form
-{
+class Application_Form_StockOrder extends Aktiv_User_Form {
 
-    public function init()
-    {
+    public function init() {
         $this->initFormSettings();
 
         //add form elements
@@ -25,11 +23,10 @@ class Application_Form_StockOrder extends Aktiv_User_Form
      *
      * @return \Application_Form_User
      */
-    public function setEditForm()
-    {
+    public function setEditForm() {
         $this->getElement('broker');
 
-        if(!$this->getElement('timestamp')){
+        if (!$this->getElement('timestamp')) {
             $this->addTimestamp();
             $this->getElement('timestamp')->setOrder(0);
         }
@@ -41,11 +38,10 @@ class Application_Form_StockOrder extends Aktiv_User_Form
      *
      * @return \Application_Form_User
      */
-    public function setFilterableForm()
-    {
+    public function setFilterableForm() {
         parent::setFilterableForm();
 
-        if(!$this->getElement('date_from')){
+        if (!$this->getElement('date_from')) {
             $this->addDateFrom()
                     ->addDateTo();
         }
@@ -53,25 +49,23 @@ class Application_Form_StockOrder extends Aktiv_User_Form
         $this->removeElement('type');
         $this->addType('select');
 
-//        $this->getElement('customer_name')->setRequired(false);
         $this->getElement('customer')->setRequired(false);
         $this->getElement('broker')->setRequired(false);
 
         $this->removeElements(
-            array(
-                'notes',
-                'stockprice_now',
-                'stoploss_value',
-                'number',
-                'ticker',
-                'limit_value',
-                'limit_value_type'
-            )
+                array(
+                    'notes',
+                    'stockprice_now',
+                    'stoploss_value',
+                    'number',
+                    'ticker',
+                    'limit_value',
+                    'limit_value_type'
+                )
         );
 
         return $this;
     }
-
 
 }
 
