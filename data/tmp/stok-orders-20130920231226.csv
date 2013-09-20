@@ -1,0 +1,13 @@
+;Customer;"Order Type";"Limit Value";"Limit Value Type";Volume;Ticker;"Stoploss Value";"Transaction Price";"Fee Income";Broker;Notes
+"2013-04-29 08:33:44";"Jan Walczak";Buy;30.5;"L (Limit Value)";3;tel;0;94;84.6;"Broker 1";
+"2013-04-08 17:48:45";"Jan Walczak";Buy;23432.5;"L (Limit Value)";90;TEL;0;100;2700;"Broker 1";
+"2013-04-08 17:04:17";"Jan Walczak";Buy;123;"L (Limit Value)";100;TEL;0;0;0;"Broker 1";
+"2013-04-08 16:14:32";"Jan Walczak";Buy;23432.5;"L (Limit Value)";90;TEL;0;100;2700;"Broker 1";
+"2013-03-27 20:12:10";Marek;Buy;333;"B (Best Price)";40;;0;122;1464;"Broker 2";
+"2013-03-27 20:07:02";"Marial Pall";;102;;90;TEL;0;100;2700;"Broker 2";
+"2013-03-27 19:29:58";"Pawel Szczepanski";;125;;90;tel;0;120;3240;"Broker 2";
+"2013-03-27 13:29:27";"Jacek Wah";;150;;400;TEL;0;100;12000;"Broker 1";
+"2013-03-26 13:29:21";dsgdfg;;123;;102;TEL;0;90;2754;"Broker 1";
+"2013-03-24 13:29:21";"K~Ayenre Willoch";;123;;333;TEL;0;100;9990;"Broker 1";
+"2013-03-18 13:29:21";"Marian Kill";;121;;90;TEL;0;100;2700;"Broker 1";
+"2013-02-24 13:29:21";"Pawel wakil";;90;;450;TEL;;80;10800;"Broker 1";
