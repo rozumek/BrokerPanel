@@ -2,59 +2,60 @@
 
 class Aktiv_User_Form extends Core_Form
 {
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
-    public function initFormSettings() 
+    public function initFormSettings()
     {
-        parent::initFormSettings();        
+        parent::initFormSettings();
         $this->setAttrib('id', 'stockOrderForm');
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return Aktiv_Form
      */
     public function addCustomer()
     {
-        $name = new Aktiv_Form_Element_CustomerAutocomplete('customer');
-        $name->setLabel('CUSTOMER')
-            ->setRequired(true)
-                ->setOrder(1);
-        $this->addElement($name);
-        
+        $customerName = new Aktiv_Form_Element_CustomerAutocomplete('customer');
+        $customerName->setLabel('CUSTOMER')
+                ->setRequired(true)
+                ->setOrder(1)
+                ->setAttrib('hiddenIdEnabled', true);
+        $this->addElement($customerName);
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return Aktiv_Form
      */
     public function addType($elementType='radio')
-    {        
-        
+    {
+
         if($elementType === 'radio'){
             $type = new Aktiv_Form_Element_StockOrderTypeRadio('type');
             $type->setValue(1);
         }else{
             $type = new Aktiv_Form_Element_StockOrderTypeSelect('type');
         }
-        
+
         $type->setLabel('ORDER_TYPE')
                 ->setRequired(true)
                 ->setOrder(3);
 
         $this->addElement($type);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return Aktiv_Form
      */
     public function addLimitValue()
@@ -66,12 +67,12 @@ class Aktiv_User_Form extends Core_Form
                 ->setRequired(true)
                 ->addValidator(new Zend_Validate_Float());
         $this->addElement($limitValue);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return Aktiv_Form
      */
     public function addLimitValueType()
@@ -79,15 +80,15 @@ class Aktiv_User_Form extends Core_Form
         $limitValue = new Aktiv_Form_Element_LimitValueType('limit_value_type');
         $limitValue->setLabel('LIMIT_VALUE')
                 ->setOrder(5)
-                ->setRequired(true)                
+                ->setRequired(true)
                 ->setValue(1);
         $this->addElement($limitValue);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addNumber()
@@ -98,12 +99,12 @@ class Aktiv_User_Form extends Core_Form
                 ->setRequired(true)
                 ->addValidator(new Zend_Validate_Int());
         $this->addElement($number);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addTicker()
@@ -112,12 +113,12 @@ class Aktiv_User_Form extends Core_Form
         $ticker->setLabel('TICKER')
                 ->setOrder(2);
         $this->addElement($ticker);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addStopLossValue()
@@ -130,26 +131,26 @@ class Aktiv_User_Form extends Core_Form
                 ->addValidator(new Zend_Validate_Float())
                 ;
         $this->addElement($ticker);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addNotes()
     {
         $notes = new Zend_Form_Element_Textarea('notes');
         $notes->setLabel('NOTES')
-                ->setOrder(10);                              
+                ->setOrder(10);
         $this->addElement($notes);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addStockPriceNow()
@@ -159,18 +160,18 @@ class Aktiv_User_Form extends Core_Form
                 ->setOrder(8)
                 ->addValidator(new Zend_Validate_Float());
         $this->addElement($stockprice);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addBroker($acl=false)
     {
         $broker = null;
-        
+
         if($acl === true  && !Core_Acl::isUserAllowed('default:stock-orders', 'select-broker')){
             $broker = new Zend_Form_Element_Hidden('broker');
         }else{
@@ -178,16 +179,16 @@ class Aktiv_User_Form extends Core_Form
             $broker->setLabel("BROKER")
                     ->setOrder(9);
         }
-        
-        $broker->setRequired(true);            
-        
+
+        $broker->setRequired(true);
+
         $this->addElement($broker);
-        
+
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addTimestamp()
@@ -196,13 +197,13 @@ class Aktiv_User_Form extends Core_Form
         $timestamp->setLabel('TIMESTAMP')
                 ->setOrder(0);
         $this->addElement($timestamp);
-        
+
         return $this;
     }
 
 
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addDateFrom()
@@ -213,9 +214,9 @@ class Aktiv_User_Form extends Core_Form
         $this->addElement($date);
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @return \Aktiv_Form
      */
     public function addDateTo()
@@ -226,5 +227,5 @@ class Aktiv_User_Form extends Core_Form
         $this->addElement($date);
         return $this;
     }
-    
+
 }

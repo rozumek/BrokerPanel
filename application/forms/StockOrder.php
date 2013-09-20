@@ -18,7 +18,7 @@ class Application_Form_StockOrder extends Aktiv_User_Form
                 ->addStockPriceNow()
                 ->addBroker(true)
                 ->addNotes()
-                ->addSave(true);       
+                ->addSave(true);
     }
 
     /**
@@ -53,6 +53,7 @@ class Application_Form_StockOrder extends Aktiv_User_Form
         $this->removeElement('type');
         $this->addType('select');
 
+//        $this->getElement('customer_name')->setRequired(false);
         $this->getElement('customer')->setRequired(false);
         $this->getElement('broker')->setRequired(false);
 

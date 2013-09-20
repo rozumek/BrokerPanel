@@ -1,50 +1,50 @@
-<tr class="<?php echo ($this->partialCounter%2)?'even':'odd';?>">        
+<tr class="<?php echo ($this->partialCounter % 2) ? 'even' : 'odd'; ?>">
     <td><?php echo $this->partialCounter; ?></td>
     <td><?php echo $this->timestamp; ?></td>
-    <td><?php echo $this->customer; ?></td>
+    <td><?php echo $this->customer_name; ?></td>
     <td><?php echo $this->translate(Aktiv_Dictionary_StockOrderTypes::getInstance()->getByCode($this->type)); ?></td>
-    <td><?php echo $this->limit_value; ?></td>  
-    <td><?php echo $this->translate(Aktiv_Dictionary_LimitValueTypes::getInstance()->getByCode($this->limit_value_type)); ?></td>  
-    <td><?php echo $this->number; ?></td>        
-    <td><?php echo $this->ticker; ?></td>        
-    <td><?php echo $this->stoploss_value; ?></td>        
-    <td><?php echo $this->stockprice_now; ?></td>        
-    <td><?php echo $this->broker_name; ?></td>        
+    <td><?php echo $this->limit_value; ?></td>
+    <td><?php echo $this->translate(Aktiv_Dictionary_LimitValueTypes::getInstance()->getByCode($this->limit_value_type)); ?></td>
+    <td><?php echo $this->number; ?></td>
+    <td><?php echo $this->ticker; ?></td>
+    <td><?php echo $this->stoploss_value; ?></td>
+    <td><?php echo $this->stockprice_now; ?></td>
+    <td><?php echo $this->broker_name; ?></td>
     <td>
-        <?php if(Core_Acl::canUserEdit('default:stock-orders') || Core_Acl::canUserEditOwn('default:stock-orders', $this->broker)) :?>
-        <a href="<?php echo $this->url(
-            array(
-                'controller'=> 'stock-orders', 
-                'action'=>'edit', 
+        <?php if (Core_Acl::canUserEdit('default:stock-orders') || Core_Acl::canUserEditOwn('default:stock-orders', $this->broker)) : ?>
+            <a href="<?php
+            echo $this->url(
+                    array(
+                'controller' => 'stock-orders',
+                'action' => 'edit',
                 'id' => $this->id
-            ),
-            null, 
-            true
-        );?>"><?php echo $this->translate('EDIT'); ?></a>
-        <?php endif;?>
-        <?php if((Core_Acl::canUserView('default:stock-orders') || Core_Acl::canUserViewOwn('default:stock-orders', $this->broker))&& !(Core_Acl::canUserEdit('default:stock-orders')|| Core_Acl::canUserEditOwn('default:stock-orders', $this->broker))):?>
-        &nbsp;
-        <a href="<?php echo $this->url(
-            array(
-                'controller'=> 'stock-orders', 
-                'action'=>'view', 
+                    ), null, true
+            );
+            ?>"><?php echo $this->translate('EDIT'); ?></a>
+           <?php endif; ?>
+           <?php if ((Core_Acl::canUserView('default:stock-orders') || Core_Acl::canUserViewOwn('default:stock-orders', $this->broker)) && !(Core_Acl::canUserEdit('default:stock-orders') || Core_Acl::canUserEditOwn('default:stock-orders', $this->broker))): ?>
+            &nbsp;
+            <a href="<?php
+            echo $this->url(
+                    array(
+                'controller' => 'stock-orders',
+                'action' => 'view',
                 'id' => $this->id
-            ),
-            null, 
-            true
-        );?>"><?php echo $this->translate('VIEW');?></a>
-        <?php endif;?>
-        <?php if(Core_Acl::canUserDelete('default:stock-orders') || Core_Acl::canUserDeleteOwn('default:stock-orders', $this->broker)):?>
-        &nbsp;
-        <a href="<?php echo $this->url(
-            array(
-                'controller'=> 'stock-orders', 
-                'action'=>'delete', 
+                    ), null, true
+            );
+            ?>"><?php echo $this->translate('VIEW'); ?></a>
+           <?php endif; ?>
+           <?php if (Core_Acl::canUserDelete('default:stock-orders') || Core_Acl::canUserDeleteOwn('default:stock-orders', $this->broker)): ?>
+            &nbsp;
+            <a href="<?php
+            echo $this->url(
+                    array(
+                'controller' => 'stock-orders',
+                'action' => 'delete',
                 'id' => $this->id
-            ),
-            null, 
-            true
-        );?>"><?php echo $this->translate('DELETE'); ?></a>  
-        <?php endif;?>
+                    ), null, true
+            );
+            ?>"><?php echo $this->translate('DELETE'); ?></a>
+           <?php endif; ?>
     </td>
 </tr>

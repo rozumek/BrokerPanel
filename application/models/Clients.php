@@ -140,12 +140,19 @@ class Application_Model_Clients extends Core_Model_Db_Abstract implements Cms_Co
      * @param int $offset
      * @return array
      */
-    public function getClientsList($sort=null, $limit=null, $offset=0) {
+    public function getClientsList($sort=null, $limit=null, $offset=0, $forAutocomplete=true) {
         $list = array();
 
         foreach ($this->getClients(array(), $sort, $limit, $offset) as $client) {
             if ($client instanceof Application_Model_DbTable_Row_Client) {
-                $list[] = $client->getName();
+                if ($forAutocomplete) {
+                    $list[] = array(
+                        'label' => $client->getName(),
+                        'value' => $client->getId()
+                    );
+                } else {
+                    $list[] = $client->getName();
+                }
             }
         }
 
