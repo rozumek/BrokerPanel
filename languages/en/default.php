@@ -106,5 +106,6 @@ return array(
     'ADD_CLIENT' => 'Add Client',
     'EDIT_CLIENT' => 'Edit Client',
     'VIEW_CLIENT' => 'View Client',
-    'FEE_INCOME' => 'Fee Income'
+    'FEE_INCOME' => 'Fee Income',
+    'CHANGELOG' => 'Change log'
 );

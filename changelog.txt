@@ -1,0 +1,14 @@
+--------------------------------------------------------------------------------
+Version 1.1 RC
+
+2013-09-25
+
+    - Clients Tab (add/edit/delete)
+    - Fee Income support
+    - New statistics - support for fee income per client
+    - Application version notifier
+    - Customer enchancements
+        - Connection to clients
+        - Dropbox capabilities
+    - Change log notification
+
