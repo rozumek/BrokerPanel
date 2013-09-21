@@ -11,4 +11,5 @@ Version 1.1 RC
         - Connection to clients
         - Dropbox capabilities
     - Change log notification
+    - Application Framework updates
 
