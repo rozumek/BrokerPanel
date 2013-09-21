@@ -31,6 +31,7 @@
                         <?php echo $this->translate('PANEL_FOOTER');?>
                         <?php echo $this->getHelper('serverUrl')->getHost(); ?> -
                         <?php echo $this->getHelper('version')->getVersion('Beta')?>
+                        <a style="float:right" href="<?php echo $this->url(array(), 'default-index-changelog');?>"><?php echo $this->translate('CHANGELOG');?></a>
                     </div>
                 </div>
             </div>
