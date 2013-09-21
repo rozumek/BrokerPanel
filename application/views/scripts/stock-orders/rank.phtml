@@ -6,12 +6,13 @@
             <th>#</th>
             <th><?php echo $this->translate('TURNOVER');?></th>
             <th><?php echo $this->translate('Broker');?></th>
+            <th><?php echo $this->translate('FEE_INCOME');?></th>
         </tr>
     </thead>
     <tbody><?php echo $this->partialLoop('stock-orders/partials/table-row-rank.phtml', $this->paginator); ?></tbody>
     <tfoot>
         <tr>
-            <td colspan="11">
+            <td colspan="4">
                 <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml');?>
             </td>
         </tr>

@@ -11,7 +11,10 @@
                 <span><?php echo $this->brokerOfADay->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfADay->sum);?></span>            
+                <span>kr <?php echo number_format($this->brokerOfADay->sum, 2, ',', '');?></span>
+                <br/>
+                <label><?php echo $this->translate('FEE_INCOME');?></label>:
+                <span>kr <?php echo number_format($this->brokerOfADay->fee_income, 2, ',', '');?></span>
             </div>
         </div>
         <a href="<?php echo $this->url(array(
@@ -31,9 +34,12 @@
                 <span><?php echo $this->brokerOfAWeek->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfAWeek->sum);?></span>
+                <span>kr <?php echo number_format($this->brokerOfAWeek->sum, 2, ',', '');?></span>
+                <br/>
+                <label><?php echo $this->translate('FEE_INCOME');?></label>:
+                <span>kr <?php echo number_format($this->brokerOfAWeek->fee_income, 2, ',', '');?></span>
             </div>
-        </div>        
+        </div>
         <a href="<?php echo $this->url(array(
             'module' => 'default',
             'controller' => 'stock-orders',
@@ -43,7 +49,7 @@
     </div>
 <?php endif; ?>
 <?php if(!empty($this->brokerOfAMonth)):?>
-    <div class="broker month">        
+    <div class="broker month">
         <div class="border">
             <h2><?php echo $this->translate('BROKER_OF_A_MONTH');?></h2>
             <div class="data">
@@ -51,7 +57,10 @@
                 <span><?php echo $this->brokerOfAMonth->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfAMonth->sum);?></span>
+                <span>kr <?php echo number_format($this->brokerOfAMonth->sum, 2, ',', '');?></span>
+                <br/>
+                <label><?php echo $this->translate('FEE_INCOME');?></label>:
+                <span>kr <?php echo number_format($this->brokerOfAMonth->fee_income, 2, ',', '');?></span>
             </div>
         </div>
         <a href="<?php echo $this->url(array(
@@ -63,7 +72,7 @@
     </div>
 <?php endif; ?>
 <?php if(!empty($this->brokerOfAYear)):?>
-    <div class="broker year">     
+    <div class="broker year">
         <div class="border">
             <h2><?php echo $this->translate('BROKER_OF_A_YEAR');?></h2>
             <div class="data">
@@ -71,7 +80,10 @@
                 <span><?php echo $this->brokerOfAYear->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfAYear->sum);?></span>
+                <span>kr <?php echo number_format($this->brokerOfAYear->sum, 2, ',', '');?></span>
+                <br/>
+                <label><?php echo $this->translate('FEE_INCOME');?></label>:
+                <span>kr <?php echo number_format($this->brokerOfAYear->fee_income, 2, ',', '');?></span>
             </div>
         </div>
         <a href="<?php echo $this->url(array(

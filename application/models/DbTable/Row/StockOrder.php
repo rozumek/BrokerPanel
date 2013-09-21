@@ -212,20 +212,6 @@ class Application_Model_DbTable_Row_StockOrder extends Core_Model_Db_Table_Row_A
      * @return string
      */
     public function getFeeIncome() {
-        return $this->getCustomer()->getFee() * $this->getStockpriceNow() * $this->getNumber();
+        return $this->getCustomer()->getFee(false) * $this->getStockpriceNow() * $this->getNumber();
     }
-
-    /**
-     *
-     * @return array
-     */
-    public function toArray() {
-        $array = parent::toArray();
-
-        $array['customer_name'] = $this->getCustomer()->getName();
-        $array['fee_income'] = $this->getFeeIncome();
-
-        return $array;
-    }
-
 }

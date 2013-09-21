@@ -3,7 +3,7 @@
 class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstract {
 
     /**
-     * 
+     *
      * @return int
      */
     public function getId() {
@@ -11,7 +11,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @param int $id
      * @return Application_Model_DbTable_Row_Client
      */
@@ -21,7 +21,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @return Application_Model_DbTable_Row_User
      */
     public function getBroker() {
@@ -29,7 +29,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @return type
      */
     public function getName() {
@@ -37,7 +37,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @param type $username
      * @return \Application_Model_DbTable_Row_Client
      */
@@ -47,7 +47,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @return type
      */
     public function getEmail() {
@@ -55,7 +55,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @param type $email
      * @return \Application_Model_DbTable_Row_Client
      */
@@ -65,15 +65,19 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @return float
      */
-    public function getFee() {
-        return (float) $this->fee;
+    public function getFee($percent=true) {
+        if ($percent === false) {
+            return (float) $this->fee / 100;
+        } else {
+            return (float) $this->fee;
+        }
     }
 
     /**
-     * 
+     *
      * @param float $fee
      * @return \Application_Model_DbTable_Row_Client
      */
@@ -83,7 +87,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @return type
      */
     public function getCreated() {
@@ -91,7 +95,7 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     }
 
     /**
-     * 
+     *
      * @param type $created
      * @return \Application_Model_DbTable_Row_Client
      */
