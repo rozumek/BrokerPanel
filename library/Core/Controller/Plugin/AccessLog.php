@@ -15,22 +15,19 @@ class Core_Controller_Plugin_AccessLog extends Core_Log_Plugin_AccessLog_Abstrac
     );
 
     /**
-     * 
+     *
      * @return string|int
      */
     protected function _getUserOrGuest() {
-        $restAuth = new Core_Http_Authentication_RestAuth($this->getRequest());
-        $key = $restAuth->getAuthKey();
-
-        if ($this->_auth->hasIdentity($key)) {
-            return (int) $this->_auth->getIdentity($key)->getId();
+        if ($this->_auth->hasIdentity()) {
+            return (int) $this->_auth->getIdentity()->getId();
         }
 
         return 'guest';
     }
 
     /**
-     * 
+     *
      * @return array
      */
     protected function _getData() {
@@ -45,7 +42,7 @@ class Core_Controller_Plugin_AccessLog extends Core_Log_Plugin_AccessLog_Abstrac
             }
 
             $data = Core_Json::encode($json);
-            
+
             return $data;
         } catch (Zend_Exception $e) {
             return array();

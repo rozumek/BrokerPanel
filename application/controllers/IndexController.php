@@ -46,7 +46,7 @@ class IndexController extends Cms_Controller_Action {
 
             //restore identity
             $this->_auth->setIdentity($restoredIdentity);
-            $this->identity = $this->_auth->getIdenity();
+            $this->identity = $this->_auth->getIdentity();
 
             $this->_addMessagetoQueue(sprintf(_T('LOGIN_IDENTITY_MESSAGE'), $logoutIdentity->getUserName(), $backupIdentity->getUserName()));
 
@@ -78,7 +78,7 @@ class IndexController extends Cms_Controller_Action {
             if ($form->isValid($formData)) {
                 try {
                     if ($this->_auth->authenticate($formData['username'], $formData['password'])) {
-                        $user = $this->_usersModel->getUser($this->_auth->getIdenity()->getId());
+                        $user = $this->_usersModel->getUser($this->_auth->getIdentity()->getId());
                         $newIdentity = array_merge($user->toArray(), array('rolename' => $user->getRole()->getName()));
 
                         $this->_setIdentity($newIdentity);

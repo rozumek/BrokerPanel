@@ -52,7 +52,7 @@ class UsersController extends Cms_Controller_Action
 
                     //set new identity
                     $this->_auth->setIdentity($newIdentity);
-                    $this->identity = $this->_auth->getIdenity();
+                    $this->identity = $this->_auth->getIdentity();
 
                     //backup old identity
                     $this->_getIdentity()->setBackUpIdentity($oldIdentity);

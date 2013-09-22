@@ -355,7 +355,7 @@ class Core_Controller_Action extends Zend_Controller_Action{
     protected function _setIdentity($newIdentity){
         if(!($this->identity instanceof Core_User_Identity) && $this->_auth->isLoggedIn()){
             $this->_auth->setIdentity($newIdentity);   
-            $this->identity = $this->_auth->getIdenity();
+            $this->identity = $this->_auth->getIdentity();
         }
     }
     

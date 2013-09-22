@@ -12,4 +12,5 @@ Version 1.1 RC
         - Dropbox capabilities
     - Change log notification
     - Application Framework updates
+    - Access log implementation (in location /data/logs/access.log)
 

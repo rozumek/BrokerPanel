@@ -122,6 +122,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         }
 
         Zend_Registry::set('log', $logger);
+
+        //access log
+        $this->getResource('frontController')
+                ->registerPlugin(
+                        new Core_Controller_Plugin_AccessLog(new Application_Model_Auth(Zend_Auth::getInstance()))
+                );
     }
 
     protected function _initErrorHandler() {
