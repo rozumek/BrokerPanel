@@ -1,6 +1,6 @@
 <tr class="<?php echo ($this->partialCounter%2)?'even':'odd';?>">
     <td><?php echo $this->partialCounter; ?></td>
-    <td><?php echo number_format($this->turnover, 2, ',', ''); ?></td>
+    <td><?php echo number_format($this->turnover, 0, ',', ' '); ?></td>
     <td><?php echo $this->broker_name; ?></td>
-    <td><?php echo number_format($this->fee_income, 2, ',', ''); ?></td>
+    <td><?php echo number_format($this->fee_income, 0, ',', ' '); ?></td>
 </tr>

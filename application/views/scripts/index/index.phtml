@@ -11,10 +11,10 @@
                 <span><?php echo $this->brokerOfADay->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfADay->sum, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfADay->sum, 0, ',', ' ');?></span>
                 <br/>
                 <label><?php echo $this->translate('FEE_INCOME');?></label>:
-                <span>kr <?php echo number_format($this->brokerOfADay->fee_income, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfADay->fee_income, 0, ',', ' ');?></span>
             </div>
         </div>
         <a href="<?php echo $this->url(array(
@@ -34,10 +34,10 @@
                 <span><?php echo $this->brokerOfAWeek->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfAWeek->sum, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfAWeek->sum, 0, ',', ' ');?></span>
                 <br/>
                 <label><?php echo $this->translate('FEE_INCOME');?></label>:
-                <span>kr <?php echo number_format($this->brokerOfAWeek->fee_income, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfAWeek->fee_income, 0, ',', ' ');?></span>
             </div>
         </div>
         <a href="<?php echo $this->url(array(
@@ -57,10 +57,10 @@
                 <span><?php echo $this->brokerOfAMonth->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfAMonth->sum, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfAMonth->sum, 0, ',', ' ');?></span>
                 <br/>
                 <label><?php echo $this->translate('FEE_INCOME');?></label>:
-                <span>kr <?php echo number_format($this->brokerOfAMonth->fee_income, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfAMonth->fee_income, 0, ',', ' ');?></span>
             </div>
         </div>
         <a href="<?php echo $this->url(array(
@@ -80,10 +80,10 @@
                 <span><?php echo $this->brokerOfAYear->broker_name;?></span>
                 <br/>
                 <label><?php echo $this->translate('TOTAL_EARN');?>:</label>
-                <span>kr <?php echo number_format($this->brokerOfAYear->sum, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfAYear->sum, 0, ',', ' ');?></span>
                 <br/>
                 <label><?php echo $this->translate('FEE_INCOME');?></label>:
-                <span>kr <?php echo number_format($this->brokerOfAYear->fee_income, 2, ',', '');?></span>
+                <span>kr <?php echo number_format($this->brokerOfAYear->fee_income, 0, ',', ' ');?></span>
             </div>
         </div>
         <a href="<?php echo $this->url(array(
