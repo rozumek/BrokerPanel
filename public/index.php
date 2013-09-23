@@ -18,9 +18,9 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
-require_once APPLICATION_PATH . '/defines.php';
 require_once APPLICATION_PATH . '/../library/functions.php';
-require_once APPLICATION_PATH . '/../library/debug.php';
+require_once APPLICATION_PATH . '/defines.php';
+require_once APPLICATION_PATH . '/debug.php';
 
 /** Zend_Application */
 require_once 'Zend/Application.php';
