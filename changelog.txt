@@ -1,13 +1,30 @@
 -------------------------------------------------------------------------------
-Version 1.1.1 RC
+Version 1.1.2 RC
 
 2013-09-23
 
-   - When email is added I get error  ot foundApplication errror.
+    - Security Fix #001
+        - Added robots.txt and disallowed
+        - New secure passwords for critical users
+    - Stock Order Form changes
+        - Choosing Limit Value and selecting Best, disabled text input bellow
+        - Field is not mandatory when value is Best
+    - Decimal changes - skiping decimals, and enabled each thousand separator
+    - Build Mode Functionality - if enabled (it must be enabled manualy)
+      page access is restricted to special Secret Key
+    - Sorting Broker Statisticts by fee income
+    - Fee Income will be calculated since 2013-10-01
+
+-------------------------------------------------------------------------------
+Version 1.1.1
+
+2013-09-23
+
+   - When email is added it gets error: Not Found, Application errror.
    - Can not edit fee as admin
 
 --------------------------------------------------------------------------------
-Version 1.1 RC
+Version 1.1
 
 2013-09-23
 

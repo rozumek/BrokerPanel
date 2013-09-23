@@ -3,13 +3,13 @@
     <td><?php echo $this->timestamp; ?></td>
     <td><?php echo $this->customer_name; ?></td>
     <td><?php echo $this->translate(Aktiv_Dictionary_StockOrderTypes::getInstance()->getByCode($this->type)); ?></td>
-    <td><?php echo $this->limit_value; ?></td>
+    <td><?php echo number_format($this->limit_value, 2, ',', ' '); ?></td>
     <td><?php echo $this->translate(Aktiv_Dictionary_LimitValueTypes::getInstance()->getByCode($this->limit_value_type)); ?></td>
     <td><?php echo $this->number; ?></td>
     <td><?php echo $this->ticker; ?></td>
     <td><?php echo $this->stoploss_value; ?></td>
     <td><?php echo $this->stockprice_now; ?></td>
-    <td><?php echo number_format($this->fee_income, 2, ',', ''); ?></td>
+    <td><?php echo number_format($this->fee_income, 2, ',', ' '); ?></td>
     <td><?php echo $this->broker_name; ?></td>
     <td>
         <?php if (Core_Acl::canUserEdit('default:stock-orders') || Core_Acl::canUserEditOwn('default:stock-orders', $this->broker)) : ?>

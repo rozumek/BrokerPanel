@@ -228,4 +228,18 @@ class Aktiv_User_Form extends Core_Form
         return $this;
     }
 
+    /**
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function isValid($data) {
+        //LIMIT_VALUE_B
+        if(Core_Array::get($data, 'limit_value_type') == 2) {
+            $this->getElement('limit_value')->setRequired(false);
+        }
+
+        return parent::isValid($data);
+    }
+
 }
