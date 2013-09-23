@@ -235,7 +235,7 @@ class Aktiv_User_Form extends Core_Form
      */
     public function isValid($data) {
         //LIMIT_VALUE_B
-        if($data['limit_value_type'] == 2) {
+        if(Core_Array::get($data, 'limit_value_type') == 2) {
             $this->getElement('limit_value')->setRequired(false);
         }
 

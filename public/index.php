@@ -20,7 +20,22 @@ set_include_path(implode(PATH_SEPARATOR, array(
 
 require_once APPLICATION_PATH . '/../library/functions.php';
 require_once APPLICATION_PATH . '/defines.php';
-require_once APPLICATION_PATH . '/debug.php';
+
+// Check if secure mode cookie should be created
+if(isset($_GET['SECURED_MODE']) && $_GET['SECURED_MODE'] == SECURED_KEY) {
+    if (!isset($_COOKIE['SECURED_MODE'])) {
+        setcookie('SECURED_MODE', SECURED_KEY);
+    }
+}
+
+// Show Build Mode screen
+if(BUILD_MODE == 'On'
+    && (!isset($_GET['SECURED_MODE']) || $_GET['SECURED_MODE'] != SECURED_KEY)
+    && (!isset($_COOKIE['SECURED_MODE']) || $_COOKIE['SECURED_MODE'] != SECURED_KEY)
+) {
+    require PUBLIC_DIR . '/build-mode.php';
+    exit;
+}
 
 /** Zend_Application */
 require_once 'Zend/Application.php';

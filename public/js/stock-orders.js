@@ -12,17 +12,5 @@
 
             return submitForm
         });
-
-        /**
-         * Register Order form limit value processing
-         */
-        $('input[name="limit_value_type"]').change(function(){
-            if ($(this).val() == 2) {
-                $('#limit_value').attr('disabled', true);
-            } else {
-                $('#limit_value').attr('disabled', false);
-            }
-        });
-        $('input[name="limit_value_type"]:checked').trigger('change');
     });
 })(jQuery);
