@@ -2,32 +2,32 @@
 <config>
     <navigation>
         <home>
-            <label>BROKER_STATISTICS</label>            
+            <label>BROKER_STATISTICS</label>
             <route>default-index-index</route>
             <resource>default:index</resource>
             <privilege>index</privilege>
         </home>
         <users>
-            <label>USERS</label>            
+            <label>USERS</label>
             <route>default-users-index</route>
             <resource>default:users</resource>
             <privilege>index</privilege>
             <pages>
                 <preview>
-                    <label>LIST</label>            
+                    <label>LIST</label>
                     <route>default-users-index</route>
                     <resource>default:users</resource>
                     <privilege>index</privilege>
                 </preview>
                 <add>
                     <label>ADD_USER</label>
-                    <route>default-users-add</route>                    
+                    <route>default-users-add</route>
                     <resource>default:users</resource>
                     <privilege>add</privilege>
                 </add>
                 <user_account_requests>
                     <label>ACCOUNT_REQUESTS</label>
-                    <route>default-account-requests-index</route>                    
+                    <route>default-account-requests-index</route>
                     <resource>default:account-requests</resource>
                     <privilege>index</privilege>
                 </user_account_requests>
@@ -39,22 +39,22 @@
                     <visible>false</visible>
                 </edit>
             </pages>
-        </users>        
+        </users>
         <stock-orders>
-            <label>STOCK_ORDERS</label>            
-            <route>default-stock-orders-index</route>
+            <label>STOCK_ORDERS</label>
+            <route>default-stock-orders-add</route>
             <resource>default:stock-orders</resource>
             <privilege>index</privilege>
             <pages>
                 <preview>
-                    <label>LIST</label>            
+                    <label>LIST</label>
                     <route>default-stock-orders-index</route>
                     <resource>default:stock-orders</resource>
                     <privilege>index</privilege>
                 </preview>
                 <add>
                     <label>ADD_STOCK_ORDER</label>
-                    <route>default-stock-orders-add</route>                    
+                    <route>default-stock-orders-add</route>
                     <resource>default:stock-orders</resource>
                     <privilege>add</privilege>
                 </add>
@@ -66,22 +66,22 @@
                     <visible>false</visible>
                 </edit>
             </pages>
-        </stock-orders>  
+        </stock-orders>
         <clients>
-            <label>CLIENTS</label>            
+            <label>CLIENTS</label>
             <route>default-clients-index</route>
             <resource>default:clients</resource>
             <privilege>index</privilege>
             <pages>
                 <preview>
-                    <label>LIST</label>            
+                    <label>LIST</label>
                     <route>default-clients-index</route>
                     <resource>default:clients</resource>
                     <privilege>index</privilege>
                 </preview>
                 <add>
                     <label>ADD_CLIENT</label>
-                    <route>default-clients-add</route>                    
+                    <route>default-clients-add</route>
                     <resource>default:clients</resource>
                     <privilege>add</privilege>
                 </add>
@@ -93,10 +93,10 @@
                     <visible>false</visible>
                 </edit>
             </pages>
-        </clients>      
+        </clients>
         <logout>
             <label>LOGOUT</label>
-            <route>default-index-logout</route>            
+            <route>default-index-logout</route>
             <resource>default:index</resource>
             <privilege>logout</privilege>
         </logout>

@@ -162,7 +162,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 )
                 ->where('YEAR(timestamp) = ?', $year)
                 ->group(array('broker', 'YEAR(timestamp)'))
-                ->order('sum DESC')
+                ->order('fee_income DESC')
                 ;
 
         $broker = $this->getDbTable()
@@ -206,7 +206,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->where('MONTH(timestamp) = ?', $month)
                 ->where('YEAR(timestamp) = ?', $year)
                 ->group(array('broker', 'MONTH(timestamp)', 'YEAR(timestamp)'))
-                ->order('sum DESC')
+                ->order('fee_income DESC')
                 ;
 
         $broker = $this->getDbTable()
@@ -250,7 +250,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->where('WEEKOFYEAR(timestamp) = ?', $week)
                 ->where('YEAR(timestamp) = ?', $year)
                 ->group(array('broker', 'WEEKOFYEAR(timestamp)', 'YEAR(timestamp)'))
-                ->order('sum DESC')
+                ->order('fee_income DESC')
                 ;
 
         $broker = $this->getDbTable()
@@ -294,7 +294,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->where('DAYOFYEAR(timestamp) = ?', $day)
                 ->where('YEAR(timestamp) = ?', $year)
                 ->group(array('broker', 'DAYOFYEAR(timestamp)', 'YEAR(timestamp)'))
-                ->order('sum DESC')
+                ->order('fee_income DESC')
                 ;
 
         $broker = $this->getDbTable()
@@ -331,7 +331,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     )
                 )
                 ->where('YEAR(timestamp) = ?', $year)
-                ->order('turnover DESC');
+                ->order('fee_income DESC');
 
         switch($type){
             case 'day':
