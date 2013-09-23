@@ -27,7 +27,15 @@ class Application_Model_DbTable_Row_Client extends Core_Model_Db_Table_Row_Abstr
     public function getBroker() {
         return $this->findParentRow('Application_Model_DbTable_Users');
     }
+    
+    public function setBroker($broker) {
+	$this->broker = (int)$broker;
+	return $this;
+    }
 
+    public function getBrokerId() {
+	return (int)$this->broker;
+    }
     /**
      *
      * @return type

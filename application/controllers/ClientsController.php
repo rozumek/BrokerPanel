@@ -9,7 +9,7 @@ class ClientsController extends Cms_Controller_Action
         $this->_actionForm = new Application_Form_Client($this->_getIdentity()->getRole());
         
         $this->_setModuleForRoutes('default');
-        $this->_setControllereForRoutes('users');
+        $this->_setControllereForRoutes('clients');
         $this->_setMessagesPrefix('CLIENT');
         
         $this->_setTitle('CLIENTS');                

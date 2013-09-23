@@ -1,3 +1,11 @@
+-------------------------------------------------------------------------------
+Version 1.1.1 RC
+
+2013-09-23
+
+   - When email is added I get error  ot foundApplication errror.
+   - Can not edit fee as admin
+
 --------------------------------------------------------------------------------
 Version 1.1 RC
 

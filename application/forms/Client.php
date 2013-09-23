@@ -38,9 +38,9 @@ class Application_Form_Client extends Core_User_Form {
     public function addFee() {
         $fee = new Zend_Form_Element_Text('fee');
         $fee->setLabel('FEE')
-                ->setRequired(true)
                 ->addValidator(new Zend_Validate_Float());
-        
+  	
+	$this->addElement($fee);      
         return $this;
     }
     

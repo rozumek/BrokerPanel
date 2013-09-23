@@ -65,7 +65,7 @@ class Application_Model_DbTable_Clients extends Core_Model_Db_Table_Abstract
         }
         
         if(isset($filters['name']) && !empty($filters['name'])){
-            $query->where('LOWER(name) LIKE ?', '%'.strtolower($filters['name']).'%');
+            $query->where('LOWER(clients.name) LIKE ?', '%'.strtolower($filters['name']).'%');
         }
         
         if(isset($filters['email']) && !empty($filters['email'])){
