@@ -114,3 +114,12 @@ body{
 .readonly{
     color: #999999;
 }
+
+.build-mode-highlight {
+    background: yellow;
+    padding: 3px;
+    color: #000;
+    position: absolute;
+    left: 420px;
+    top: 40px;
+}

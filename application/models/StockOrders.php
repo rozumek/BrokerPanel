@@ -85,7 +85,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
 
             $stockOrder->setCustomer($data['customer']);
             $stockOrder->setType($data['type']);
-            $stockOrder->setLimitValue(Core_Array::get($data, 'limit_value'));
+            $stockOrder->setLimitValue(Core_Array::get($data, 'limit_value', 0));
             $stockOrder->setLimitValueType($data['limit_value_type']);
             $stockOrder->setNumber($data['number']);
             $stockOrder->setTicker($data['ticker']);
@@ -359,7 +359,8 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     ''
                 )
                 ->where('so2.timestamp >= ?', $this->_feeIncomeStartCalculation)
-                ->where('so2.broker = so1.broker');
+                ->where('so2.broker = so1.broker')
+                ;
 
         $query = $this->getDbTable()
                 ->select(false)

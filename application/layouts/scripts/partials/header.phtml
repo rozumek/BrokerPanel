@@ -1,4 +1,7 @@
 <img class="logo" src="/images/admin/logo.png" alt="Aktiv Securities"/>
+<?php if(Core_Application_Env::isBuildMode()):?>
+    <div class="build-mode-highlight"><?php echo $this->translate('BUILD_MODE');?></div>
+<?php endif;?>
 <div class="titles">
     <div class="languages-list">
         <a href="<?php echo $this->baseUrl().'?lang=en'?>"><img src="/images/flags/en.gif" alt="en"></a>

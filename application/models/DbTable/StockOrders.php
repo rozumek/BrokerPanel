@@ -90,7 +90,7 @@ class Application_Model_DbTable_StockOrders extends Core_Model_Db_Table_Abstract
         }
 
         if (isset($filters['broker']) && !empty($filters['broker'])) {
-            $query->where('broker = ?', $filters['broker']);
+            $query->where($this->_name .'.broker = ?', $filters['broker']);
         }
 
         if (isset($filters['type']) && !empty($filters['type'])) {

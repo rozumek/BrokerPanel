@@ -18,8 +18,8 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
-require_once APPLICATION_PATH . '/../library/functions.php';
 require_once APPLICATION_PATH . '/defines.php';
+require_once APPLICATION_PATH . '/../library/functions.php';
 
 // Check if secure mode cookie should be created
 if(isset($_GET['SECURED_MODE']) && $_GET['SECURED_MODE'] == SECURED_KEY) {
