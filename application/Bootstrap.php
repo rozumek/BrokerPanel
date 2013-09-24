@@ -10,6 +10,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         //init system messages queue
         Core_Application_MessagesQueue::init();
 
+        //create mandatory directories
+        Core_File::mkdir(array(
+            DATA_DIR,
+            LOGS_DIR,
+            CACHE_DIR,
+            TMP_DIR,
+        ));
+
         // set application version
         $versionFile  = APPLICATION_PATH . '/../version.txt';
 
