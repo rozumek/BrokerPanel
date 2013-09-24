@@ -157,7 +157,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
         }
 
         $subQuery = $this->getDbTable()
-                ->select()
+                ->select(false)
                 ->setIntegrityCheck(false)
                 ->from(
                     array(
@@ -219,7 +219,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
         }
 
         $subQuery = $this->getDbTable()
-                ->select()
+                ->select(false)
                 ->setIntegrityCheck(false)
                 ->from(
                     array(
@@ -282,7 +282,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
         }
 
         $subQuery = $this->getDbTable()
-                ->select()
+                ->select(false)
                 ->setIntegrityCheck(false)
                 ->from(
                     array(
@@ -345,7 +345,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
         }
 
         $subQuery = $this->getDbTable()
-                ->select()
+                ->select(false)
                 ->setIntegrityCheck(false)
                 ->from(
                     array(
@@ -404,7 +404,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
         $year = !empty($data['year'])?$data['year']:date('Y');
 
         $subQuery = $this->getDbTable()
-                ->select()
+                ->select(false)
                 ->setIntegrityCheck(false)
                 ->from(
                     array(
