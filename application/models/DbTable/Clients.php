@@ -24,7 +24,7 @@ class Application_Model_DbTable_Clients extends Core_Model_Db_Table_Abstract
      * @var array 
      */
     protected $_dependentTables = array(
-        'Application_Model_DbTable_Clients'
+        'Application_Model_DbTable_StockOrders'
     );
     
     /**
