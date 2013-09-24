@@ -14,7 +14,8 @@ INSERT INTO `acl` (`id`, `resource`, `role`, `privilege`, `type`, `description`)
 (45, 3, 2, 'delete', 'allow', NULL),
 (46, 3, 2, 'delete-own', 'allow', NULL),
 (47, 3, 2, 'view-all', 'allow', NULL),
-(48, 1, NULL, 'accountrequest', 'allow', 'Prosba o zalozenie konta');
+(48, 1, NULL, 'accountrequest', 'allow', 'Prosba o zalozenie konta'),
+(49, 3, 2, 'rank', 'allow', 'Dostep do rankingów');
 
 --
 -- Zrzut danych tabeli `language_domains`
