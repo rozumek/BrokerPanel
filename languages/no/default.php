@@ -106,5 +106,6 @@ return array(
     'EDIT_CLIENT' => 'Rediger Kunde',
     'VIEW_CLIENT' => 'Se Kunde',
     'FEE_INCOME' => 'Gebyrinntekter',
-    'CHANGELOG' => 'Endre logge'
+    'CHANGELOG' => 'Endre logge',
+    'BUILD_MODE' => 'Build Mode'
 );

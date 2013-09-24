@@ -107,5 +107,6 @@ return array(
     'EDIT_CLIENT' => 'Edit Client',
     'VIEW_CLIENT' => 'View Client',
     'FEE_INCOME' => 'Fee Income',
-    'CHANGELOG' => 'Change log'
+    'CHANGELOG' => 'Change log',
+    'BUILD_MODE' => 'Build Mode'
 );
