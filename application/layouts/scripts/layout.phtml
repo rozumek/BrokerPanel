@@ -11,6 +11,20 @@
         <?php echo $this->jQuery();?>
         <?php echo $this->headScript()
                 ->appendFile('/js/lib/core.js'); ?>
+
+        <?php if(CoreX_DebugBar::isEnabled()):?>
+            <?php echo $this->headLink()
+               ->appendStylesheet($this->baseUrl().'/font-awesome/css/font-awesome.css')
+               ->appendStylesheet($this->baseUrl().'/css/debugbar/debugbar.css')
+               ->appendStylesheet($this->baseUrl().'/css/debugbar/widgets.css')
+               ->appendStylesheet($this->baseUrl().'/css/debugbar/openhandler.css'); ?>
+
+            <?php echo $this->headScript()
+                ->appendFile('/js/debugbar/debugbar.js')
+                ->appendFile('/js/debugbar/widgets.js')
+                ->appendFile('/js/debugbar/openhandler.js'); ?>
+
+        <?php endif;?>
     </head>
     <body>
         <div id="all">
@@ -32,6 +46,10 @@
                     </div>
                 </div>
             </div>
+
+            <?php if(CoreX_DebugBar::isEnabled()):?>
+                <?php echo $this->getHelper('DebugBar')->renderDebugBar();?>
+            <?php endif;?>
         </div>
     </body>
 </html>

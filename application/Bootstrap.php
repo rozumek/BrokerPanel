@@ -30,6 +30,19 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $this->bootstrap('appconfig');
     }
 
+    protected function _initDebugMode() {
+        $this->bootstrap('view');
+
+        $debugModeConfig = $this->_getAppConfig('debugMode')->toArray();
+        $isDebugModeEnabled = Core_Array::get($debugModeConfig, 'enable', 0) == '1';
+
+        if(!Core_Application_Env::isProductionEnv() || (Core_Application_Env::isProductionEnv() && Core_Application_Env::isBuildMode())) {
+            CoreX_DebugBar::setEnabled($isDebugModeEnabled);
+        } else {
+            CoreX_DebugBar::setEnabled(false);
+        }
+    }
+
     protected function _initLanguage() {
         $this->bootstrap('locale')
                 ->bootstrap('db')
