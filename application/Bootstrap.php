@@ -34,7 +34,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $this->bootstrap('view');
 
         $debugModeConfig = $this->_getAppConfig('debugMode')->toArray();
-        $isDebugModeEnabled = Core_Array::get($debugModeConfig, 'enable', 0) == '1';
+        $isDebugModeEnabled = Core_Array::get($debugModeConfig, 'enable', 0) == '1' && Core_Array::get($debugModeConfig['debugBar'], 'enable', 0) == '1';
 
         if(!Core_Application_Env::isProductionEnv() || (Core_Application_Env::isProductionEnv() && Core_Application_Env::isBuildMode())) {
             CoreX_DebugBar::setEnabled($isDebugModeEnabled);
