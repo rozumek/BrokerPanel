@@ -498,5 +498,111 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
 
         return $customers;
     }
+
+    /**
+     *
+     * @param int $week
+     * @param int $year
+     * @return array
+     */
+    public function getBrokerWeekRanks($week=null, $year=null)
+    {
+        if($week === null){
+            $week = date('W');
+        }
+
+        if($year === null){
+            $year = date('Y');
+        }
+
+        $query = $this->getDbTable()
+                ->select(false)
+                ->setIntegrityCheck(false)
+                ->from(
+                    'stock_orders',
+                    array(
+                        'DATE_FORMAT(timestamp, \'%Y-%m-%d\') date'
+                    )
+                )
+                ->joinLeft(
+                    'clients',
+                    'clients.id = stock_orders.customer',
+                    'SUM(stock_orders.stockprice_now * stock_orders.number * clients.fee / 100) as fee_income'
+                )
+                ->joinLeft(
+                    'users',
+                    'users.id = stock_orders.broker',
+                    'users.name as broker_name'
+                )
+                ->group(
+                    array(
+                        'stock_orders.broker',
+                        'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
+                    )
+                )
+                ->where('stock_orders.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('YEAR(stock_orders.timestamp) = ?', $year)
+                ->where('WEEKOFYEAR(stock_orders.timestamp) = ?', $week)
+                ->order(array('DATE_FORMAT(timestamp, \'%Y-%m-%d\')', 'broker_name'));
+
+        $rowset = $this->getDbTable()
+                ->fetchAll($query)
+                ->toArray();
+
+        return $rowset;
+    }
+
+    /**
+     *
+     * @param int $month
+     * @param int $year
+     * @return array
+     */
+    public function getBrokerMonthRanks($month=null, $year=null)
+    {
+        if($month === null){
+            $month = date('m');
+        }
+
+        if($year === null){
+            $year = date('Y');
+        }
+
+        $query = $this->getDbTable()
+                ->select(false)
+                ->setIntegrityCheck(false)
+                ->from(
+                    'stock_orders',
+                    array(
+                        'DATE_FORMAT(timestamp, \'%Y-%m-%d\') date'
+                    )
+                )
+                ->joinLeft(
+                    'clients',
+                    'clients.id = stock_orders.customer',
+                    'SUM(stock_orders.stockprice_now * stock_orders.number * clients.fee / 100) as fee_income'
+                )
+                ->joinLeft(
+                    'users',
+                    'users.id = stock_orders.broker',
+                    'users.name as broker_name'
+                )
+                ->group(
+                    array(
+                        'stock_orders.broker',
+                        'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
+                    )
+                )
+                ->where('stock_orders.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('YEAR(stock_orders.timestamp) = ?', $year)
+                ->where('MONTH(stock_orders.timestamp) = ?', $month)
+                ->order(array('DATE_FORMAT(timestamp, \'%Y-%m-%d\')', 'broker_name'));
+
+        $rowset = $this->getDbTable()
+                ->fetchAll($query)
+                ->toArray();
+
+        return $rowset;
+    }
 }
 
