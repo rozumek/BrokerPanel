@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Version 1.1.4 RC
 
-2013-09-24
+2013-10-08
 
     - Export of weekly/monthly Broker Statistics added in rank view (Admin only)
     - Admin can edit stock orders' timestamp (using datepicker)
