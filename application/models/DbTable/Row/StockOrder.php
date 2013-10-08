@@ -214,4 +214,22 @@ class Application_Model_DbTable_Row_StockOrder extends Core_Model_Db_Table_Row_A
     public function getFeeIncome() {
         return $this->getCustomer()->getFee(false) * $this->getStockpriceNow() * $this->getNumber();
     }
+
+    /**
+     *
+     * @param string $timestamp
+     * @return \Application_Model_DbTable_Row_StockOrder
+     */
+    public function setTimestamp($timestamp) {
+        $this->timestamp = $timestamp;
+        return $this;
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getTimestamp() {
+        return $this->timestamp;
+    }
 }

@@ -193,7 +193,19 @@ class Aktiv_User_Form extends Core_Form
      */
     public function addTimestamp()
     {
-        $timestamp = new Core_Form_Element_Caption('timestamp');
+        if(Core_Acl::isUserAllowed('default:stock-orders', 'edit-timestamp')) {
+            $timestamp = new ZendX_JQuery_Form_Element_DatePicker(
+                'timestamp',
+                array(
+                    'jQueryParams' => array(
+                        'dateFormat' => 'yy-mm-dd ' . date('H:i:s')
+                    )
+                )
+            );
+        } else {
+            $timestamp = new Core_Form_Element_Caption('timestamp');
+        }
+
         $timestamp->setLabel('TIMESTAMP')
                 ->setOrder(0);
         $this->addElement($timestamp);

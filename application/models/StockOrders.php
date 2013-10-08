@@ -139,6 +139,10 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
             $stockOrder->setStockpriceNow($data['stockprice_now']);
             $stockOrder->setBroker($data['broker']);
 
+            if (isset($data['timestamp'])) {
+               $stockOrder->setTimestamp($data['timestamp']);
+            }
+
             return $this->save($stockOrder);
         }
 
