@@ -1,13 +1,5 @@
 <?php
 
-//Build mode to enable build page
-defined('BUILD_MODE')
-    || define('BUILD_MODE', 'Off');
-
-//Secured key for access during build
-defined("SECURED_KEY")
-    || define('SECURED_KEY', 'ZqbMCaymIm2MzcoKK1gn');
-
 //Define DS
 defined('DS')
     || define('DS', DIRECTORY_SEPARATOR);
