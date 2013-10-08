@@ -8,6 +8,7 @@ Version 1.1.4 RC
     - All stock orders from before 1st October are being hidden from:
         - Stock order list
         - Statistics (fee income and turnover) and rank view
+    - Build Mode Functionality improvement - switch separated from repository
 
 -------------------------------------------------------------------------------
 Version 1.1.3
