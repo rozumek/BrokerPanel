@@ -109,6 +109,8 @@ class Application_Model_DbTable_StockOrders extends Core_Model_Db_Table_Abstract
             $query->where('timestamp < DATE_ADD(?, INTERVAL 1 DAY)', $filters['date_to']);
         }
 
+        $query->where('timestamp >= ?', Application_Model_StockOrders::$_feeIncomeStartCalculation);
+
         if (!empty($sort)) {
             $query->order($sort);
         } else {

@@ -8,7 +8,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
      *
      * @var string
      */
-    protected $_feeIncomeStartCalculation = '2013-10-01';
+    public static $_feeIncomeStartCalculation = '2013-10-01';
 
     /**
      *
@@ -174,7 +174,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     'clients.id = so2.customer',
                     ''
                 )
-                ->where('so2.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->where('so2.broker = so1.broker');
 
         $query = $this->getDbTable()
@@ -192,6 +192,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 )
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
                 ->where('YEAR(so1.timestamp) = ?', $year)
+                ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->group(array('so1.broker', 'YEAR(so1.timestamp)'))
                 ->order(array('fee_income DESC', 'sum DESC'))
                 ;
@@ -236,7 +237,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     'clients.id = so2.customer',
                     ''
                 )
-                ->where('so2.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->where('so2.broker = so1.broker');
 
         $query = $this->getDbTable()
@@ -255,6 +256,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
                 ->where('MONTH(so1.timestamp) = ?', $month)
                 ->where('YEAR(so1.timestamp) = ?', $year)
+                ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->group(array('so1.broker', 'MONTH(so1.timestamp)', 'YEAR(so1.timestamp)'))
                 ->order(array('fee_income DESC', 'sum DESC'))
                 ;
@@ -299,7 +301,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     'clients.id = so2.customer',
                     ''
                 )
-                ->where('so2.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->where('so2.broker = so1.broker');
 
         $query = $this->getDbTable()
@@ -318,6 +320,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
                 ->where('WEEKOFYEAR(so1.timestamp) = ?', $week)
                 ->where('YEAR(so1.timestamp) = ?', $year)
+                ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->group(array('so1.broker', 'WEEKOFYEAR(so1.timestamp)', 'YEAR(so1.timestamp)'))
                 ->order(array('fee_income DESC', 'sum DESC'))
                 ;
@@ -362,7 +365,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     'clients.id = so2.customer',
                     ''
                 )
-                ->where('so2.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->where('so2.broker = so1.broker')
                 ;
 
@@ -382,6 +385,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
                 ->where('DAYOFYEAR(so1.timestamp) = ?', $day)
                 ->where('YEAR(so1.timestamp) = ?', $year)
+                ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->group(array('so1.broker', 'DAYOFYEAR(so1.timestamp)', 'YEAR(so1.timestamp)'))
                 ->order(array('fee_income DESC', 'sum DESC'))
                 ;
@@ -421,7 +425,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     'clients.id = so2.customer',
                     ''
                 )
-                ->where('so2.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->where('so2.broker = so1.broker');
 
         $select = $this->getDbTable()
@@ -439,6 +443,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 )
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
                 ->where('YEAR(so1.timestamp) = ?', $year)
+                ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->order(array('fee_income DESC', 'turnover DESC'))
                 ;
 
@@ -544,7 +549,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                         'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
                     )
                 )
-                ->where('stock_orders.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('stock_orders.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->where('YEAR(stock_orders.timestamp) = ?', $year)
                 ->where('WEEKOFYEAR(stock_orders.timestamp) = ?', $week)
                 ->order(array('DATE_FORMAT(timestamp, \'%Y-%m-%d\')', 'broker_name'));
@@ -597,7 +602,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                         'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
                     )
                 )
-                ->where('stock_orders.timestamp >= ?', $this->_feeIncomeStartCalculation)
+                ->where('stock_orders.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->where('YEAR(stock_orders.timestamp) = ?', $year)
                 ->where('MONTH(stock_orders.timestamp) = ?', $month)
                 ->order(array('DATE_FORMAT(timestamp, \'%Y-%m-%d\')', 'broker_name'));
