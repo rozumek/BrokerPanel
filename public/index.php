@@ -18,6 +18,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
+require_once APPLICATION_PATH . '/configs/build-mode.php';
 require_once APPLICATION_PATH . '/defines.php';
 require_once APPLICATION_PATH . '/../library/functions.php';
 
