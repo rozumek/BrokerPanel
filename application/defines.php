@@ -2,7 +2,7 @@
 
 //Build mode to enable build page
 defined('BUILD_MODE')
-    || define('BUILD_MODE', 'Off');
+    || define('BUILD_MODE', 'On');
 
 //Secured key for access during build
 defined("SECURED_KEY")
