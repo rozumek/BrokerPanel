@@ -136,7 +136,7 @@ class IndexController extends Cms_Controller_Action {
 
     public function changelogAction() {
         $this->_setTitle('CHANGELOG');
-        
+
         $changeLogFileName = APPLICATION_PATH.'/../changelog.txt';
         $changeLog = '';
 

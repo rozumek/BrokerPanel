@@ -1,4 +1,15 @@
 -------------------------------------------------------------------------------
+Version 1.1.4 RC
+
+2013-09-24
+
+    - Export of weekly/monthly Broker Statistics added in rank view (Admin only)
+    - Admin can edit stock orders' timestamp (using datepicker)
+    - All stock orders from before 1st October are being hidden from:
+        - Stock order list
+        - Statistics (fee income and turnover) and rank view
+
+-------------------------------------------------------------------------------
 Version 1.1.3
 
 2013-09-24
