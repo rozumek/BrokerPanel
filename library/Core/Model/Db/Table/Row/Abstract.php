@@ -1,87 +1,94 @@
 <?php
 
-abstract class Core_Model_Db_Table_Row_Abstract extends Zend_Db_Table_Row_Abstract implements Core_Model_Interface{
-    
+abstract class Core_Model_Db_Table_Row_Abstract extends Zend_Db_Table_Row_Abstract implements Core_Model_Interface {
+
     /**
      *
-     * @var string 
+     * @var string
      */
     protected $_lastMessage = null;
-    
+
     /**
      *
-     * @var Zend_Exception 
+     * @var Zend_Exception
      */
-    protected $_lastException = null;                
-    
+    protected $_lastException = null;
+
     /**
-     * 
+     *
      * @return string
      */
-    public function getLastMessage(){
+    public function getLastMessage() {
         return $this->_lastMessage;
     }
-    
+
     /**
-     * 
+     *
      * @return Zend_Exception
      */
-    public function getLastException(){
+    public function getLastException() {
         return $this->_lastException;
     }
-    
+
     /**
-     * 
+     *
      * @return mixed
      */
     public function save() {
-        try{
+        try {
             return parent::save();
-        }catch(Zend_Exception $e){
+        } catch (Zend_Exception $e) {
             $this->_lastMessage = $e->getMessage();
             $this->_lastException = $e;
         }
-        
+
         return false;
     }
-    
-    public function delete() {
-        try{
-            return parent::delete();
-        }catch(Zend_Exception $e){
-            $this->_lastMessage = $e->getMessage();
-            $this->_lastException = $e;
-        }
-        
-        return false;
-    }
-    
+
     /**
-     * 
+     *
+     * @return boolean
+     */
+    public function delete() {
+        try {
+            return parent::delete();
+        } catch (Zend_Exception $e) {
+            $this->_lastMessage = $e->getMessage();
+            $this->_lastException = $e;
+        }
+
+        return false;
+    }
+
+    /**
+     *
      * @return array
      */
     public function toArray() {
-        $array = array();        
-        foreach($this->_data as $key => $value){
-            try{
-                if(($decodedValue = Zend_Json::decode($value))!== null){
-                   $value = $decodedValue;
-                }   
-            }catch(Zend_Exception $e){/* does nothing */}
-            
+        $array = array();
+        foreach ($this->_data as $key => $value) {
+            try {
+                if (($decodedValue = Zend_Json::decode($value)) !== null) {
+                    $value = $decodedValue;
+                } else if ($value instanceof Core_Model_Db_Table_Rowset_Abstract) {
+                    $value = $value->toArray();
+                }
+            } catch (Zend_Exception $e) {/* does nothing */
+            }
+
             $array[$key] = $value;
         }
-        
+
         return $array;
     }
-    
+
     /**
-     * 
+     *
      * @return Zend_Db_Adapter_Abstract
      */
-    public function getDbAdapter(){
+    public function getDbAdapter() {
         return $this->getTable()
-                ->getAdapter();
+                        ->getAdapter();
     }
-    
+
 }
