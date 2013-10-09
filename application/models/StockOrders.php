@@ -160,23 +160,6 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
             $year = date('Y');
         }
 
-        $subQuery = $this->getDbTable()
-                ->select(false)
-                ->setIntegrityCheck(false)
-                ->from(
-                    array(
-                        'so2'=>'stock_orders',
-                    ),
-                    'SUM(so2.stockprice_now * so2.number * clients.fee / 100) as fee_income'
-                )
-                ->joinLeft(
-                    'clients',
-                    'clients.id = so2.customer',
-                    ''
-                )
-                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
-                ->where('so2.broker = so1.broker');
-
         $query = $this->getDbTable()
                 ->select(false)
                 ->setIntegrityCheck(false)
@@ -187,10 +170,11 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     array(
                         'SUM(so1.stockprice_now*so1.number) as sum',
                         'so1.broker',
-                        '(' . $subQuery . ') as fee_income '
+                        'SUM(so1.stockprice_now * so1.number * clients.fee / 100) as fee_income'
                     )
                 )
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
+                ->joinLeft('clients', 'clients.id = so1.customer', '')
                 ->where('YEAR(so1.timestamp) = ?', $year)
                 ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->group(array('so1.broker', 'YEAR(so1.timestamp)'))
@@ -223,23 +207,6 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
             $year = date('Y');
         }
 
-        $subQuery = $this->getDbTable()
-                ->select(false)
-                ->setIntegrityCheck(false)
-                ->from(
-                    array(
-                        'so2'=>'stock_orders',
-                    ),
-                    'SUM(so2.stockprice_now * so2.number * clients.fee / 100) as fee_income'
-                )
-                ->joinLeft(
-                    'clients',
-                    'clients.id = so2.customer',
-                    ''
-                )
-                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
-                ->where('so2.broker = so1.broker');
-
         $query = $this->getDbTable()
                 ->select(false)
                 ->setIntegrityCheck(false)
@@ -250,10 +217,11 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     array(
                         'SUM(so1.stockprice_now*so1.number) as sum',
                         'so1.broker',
-                        '(' . $subQuery . ') as fee_income '
+                        'SUM(so1.stockprice_now * so1.number * clients.fee / 100) as fee_income'
                     )
                 )
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
+                ->joinLeft('clients', 'clients.id = so1.customer', '')
                 ->where('MONTH(so1.timestamp) = ?', $month)
                 ->where('YEAR(so1.timestamp) = ?', $year)
                 ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
@@ -287,23 +255,6 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
             $year = date('Y');
         }
 
-        $subQuery = $this->getDbTable()
-                ->select(false)
-                ->setIntegrityCheck(false)
-                ->from(
-                    array(
-                        'so2'=>'stock_orders',
-                    ),
-                    'SUM(so2.stockprice_now * so2.number * clients.fee / 100) as fee_income'
-                )
-                ->joinLeft(
-                    'clients',
-                    'clients.id = so2.customer',
-                    ''
-                )
-                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
-                ->where('so2.broker = so1.broker');
-
         $query = $this->getDbTable()
                 ->select(false)
                 ->setIntegrityCheck(false)
@@ -314,10 +265,11 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     array(
                         'SUM(so1.stockprice_now*so1.number) as sum',
                         'so1.broker',
-                        '(' . $subQuery . ') as fee_income '
+                        'SUM(so1.stockprice_now * so1.number * clients.fee / 100) as fee_income'
                     )
                 )
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
+                ->joinLeft('clients', 'clients.id = so1.customer', '')
                 ->where('WEEKOFYEAR(so1.timestamp) = ?', $week)
                 ->where('YEAR(so1.timestamp) = ?', $year)
                 ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
@@ -351,24 +303,6 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
             $year = date('Y');
         }
 
-        $subQuery = $this->getDbTable()
-                ->select(false)
-                ->setIntegrityCheck(false)
-                ->from(
-                    array(
-                        'so2'=>'stock_orders',
-                    ),
-                    'SUM(so2.stockprice_now * so2.number * clients.fee / 100) as fee_income'
-                )
-                ->joinLeft(
-                    'clients',
-                    'clients.id = so2.customer',
-                    ''
-                )
-                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
-                ->where('so2.broker = so1.broker')
-                ;
-
         $query = $this->getDbTable()
                 ->select(false)
                 ->setIntegrityCheck(false)
@@ -379,10 +313,11 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     array(
                         'SUM(so1.stockprice_now*so1.number) as sum',
                         'so1.broker',
-                        '(' . $subQuery . ') as fee_income '
+                        'SUM(so1.stockprice_now * so1.number * clients.fee / 100) as fee_income'
                     )
                 )
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
+                ->joinLeft('clients', 'clients.id = so1.customer', '')
                 ->where('DAYOFYEAR(so1.timestamp) = ?', $day)
                 ->where('YEAR(so1.timestamp) = ?', $year)
                 ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
@@ -411,23 +346,6 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
     {
         $year = !empty($data['year'])?$data['year']:date('Y');
 
-        $subQuery = $this->getDbTable()
-                ->select(false)
-                ->setIntegrityCheck(false)
-                ->from(
-                    array(
-                        'so2'=>'stock_orders',
-                    ),
-                    'SUM(so2.stockprice_now * so2.number * clients.fee / 100) as fee_income'
-                )
-                ->joinLeft(
-                    'clients',
-                    'clients.id = so2.customer',
-                    ''
-                )
-                ->where('so2.timestamp >= ?', self::$_feeIncomeStartCalculation)
-                ->where('so2.broker = so1.broker');
-
         $select = $this->getDbTable()
                 ->select(false)
                 ->setIntegrityCheck(false)
@@ -438,10 +356,11 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                     array(
                         'SUM(so1.stockprice_now*so1.number) as turnover',
                         'so1.broker',
-                        '(' . $subQuery . ') as fee_income '
+                        'SUM(so1.stockprice_now * so1.number * clients.fee / 100) as fee_income'
                     )
                 )
                 ->joinInner('users', 'users.id = so1.broker', 'users.name as broker_name')
+                ->joinLeft('clients', 'clients.id = so1.customer', '')
                 ->where('YEAR(so1.timestamp) = ?', $year)
                 ->where('so1.timestamp >= ?', self::$_feeIncomeStartCalculation)
                 ->order(array('fee_income DESC', 'turnover DESC'))
