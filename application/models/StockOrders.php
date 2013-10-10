@@ -369,13 +369,13 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
         switch($type){
             case 'day':
                 $day = !empty($data['day'])?$data['day']:(date('z')+1);
-                $select->where('DAYOFYEAR(timestamp) = ?', $day)
+                $select->where('DAYOFYEAR(so1.timestamp) = ?', $day)
                         ->group(array('so1.broker', 'DAYOFYEAR(so1.timestamp)', 'YEAR(so1.timestamp)'));
                 break;
 
             case 'week':
                 $week = !empty($data['week'])?$data['week']:date('W');
-                $select->where('WEEKOFYEAR(timestamp) = ?', $week)
+                $select->where('WEEKOFYEAR(so1.timestamp) = ?', $week)
                         ->group(array('so1.broker', 'WEEKOFYEAR(so1.timestamp)', 'YEAR(so1.timestamp)'));
                 break;
 
@@ -465,7 +465,8 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->group(
                     array(
                         'stock_orders.broker',
-                        'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
+                        'YEAR(stock_orders.timestamp)',
+                        'WEEKOFYEAR(stock_orders.timestamp)'
                     )
                 )
                 ->where('stock_orders.timestamp >= ?', self::$_feeIncomeStartCalculation)
@@ -518,7 +519,8 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->group(
                     array(
                         'stock_orders.broker',
-                        'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
+                        'YEAR(stock_orders.timestamp)',
+                        'MONTH(stock_orders.timestamp)'
                     )
                 )
                 ->where('stock_orders.timestamp >= ?', self::$_feeIncomeStartCalculation)
