@@ -68,7 +68,7 @@ class Aktiv_StockOrders_Statistics_Export_Csv extends Core_Export_Csv {
                     $processRows[$date][0] = $date;
                     $processRows[$date][$column] = $fee;
                     $row++;
-                    continue;
+                    //continue;
                 }
                 $rowIt++;
             }

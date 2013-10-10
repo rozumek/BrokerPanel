@@ -465,8 +465,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->group(
                     array(
                         'stock_orders.broker',
-                        'YEAR(stock_orders.timestamp)',
-                        'WEEKOFYEAR(stock_orders.timestamp)'
+                        'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
                     )
                 )
                 ->where('stock_orders.timestamp >= ?', self::$_feeIncomeStartCalculation)
@@ -519,8 +518,7 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
                 ->group(
                     array(
                         'stock_orders.broker',
-                        'YEAR(stock_orders.timestamp)',
-                        'MONTH(stock_orders.timestamp)'
+                        'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
                     )
                 )
                 ->where('stock_orders.timestamp >= ?', self::$_feeIncomeStartCalculation)
