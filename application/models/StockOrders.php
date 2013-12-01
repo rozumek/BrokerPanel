@@ -532,5 +532,49 @@ class Application_Model_StockOrders extends Core_Model_Db_Abstract implements Cm
 
         return $rowset;
     }
+
+    /**
+     *
+     * @param string $dateFrom
+     * @param string $dateTo
+     * @return array
+     */
+    public function getCustomStatistics($dateFrom, $dateTo)
+    {
+        $query = $this->getDbTable()
+                ->select(false)
+                ->setIntegrityCheck(false)
+                ->from(
+                    'stock_orders',
+                    array(
+                        'DATE_FORMAT(timestamp, \'%Y-%m-%d\') date'
+                    )
+                )
+                ->joinLeft(
+                    'clients',
+                    'clients.id = stock_orders.customer',
+                    'SUM(stock_orders.stockprice_now * stock_orders.number * clients.fee / 100) as fee_income'
+                )
+                ->joinLeft(
+                    'users',
+                    'users.id = stock_orders.broker',
+                    'users.name as broker_name'
+                )
+                ->group(
+                    array(
+                        'stock_orders.broker',
+                        'DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\')'
+                    )
+                )
+                ->where('DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\') >= ?', $dateFrom)
+                ->where('DATE_FORMAT(stock_orders.timestamp, \'%Y-%m-%d\') <= ?', $dateTo)
+                ->order(array('DATE_FORMAT(timestamp, \'%Y-%m-%d\')', 'broker_name'));
+
+        $rowset = $this->getDbTable()
+                ->fetchAll($query)
+                ->toArray();
+
+        return $rowset;
+    }
 }
 

@@ -107,5 +107,7 @@ return array(
     'VIEW_CLIENT' => 'Se Kunde',
     'FEE_INCOME' => 'Gebyrinntekter',
     'CHANGELOG' => 'Endre logge',
-    'BUILD_MODE' => 'Build Mode'
+    'BUILD_MODE' => 'Build Mode',
+    'CUSTOM_STATISTICS' => 'Tilpassede Statistikk',
+    'GENERATE' => 'Generere',
 );

@@ -8,7 +8,8 @@ class Aktiv_StockOrders_Statistics_Export_Csv extends Core_Export_Csv {
      */
     protected $_allowedModes = array(
         'week',
-        'month'
+        'month',
+        'custom'
     );
 
     /**
@@ -24,6 +25,38 @@ class Aktiv_StockOrders_Statistics_Export_Csv extends Core_Export_Csv {
     protected $_headers = array(
         'Date/Broker'
     );
+
+    /**
+     *
+     * @var string
+     */
+    protected $_dateFrom = null;
+
+    /**
+     *
+     * @var string
+     */
+    protected $_dateTo = null;
+
+    /**
+     *
+     * @param string $date
+     * @return \Aktiv_StockOrders_Statistics_Export_Csv
+     */
+    public function setDateFrom($date) {
+        $this->_dateFrom = $date;
+        return $this;
+    }
+
+    /**
+     *
+     * @param string $date
+     * @return \Aktiv_StockOrders_Statistics_Export_Csv
+     */
+    public function setDateTo($date) {
+        $this->_dateTo = $date;
+        return $this;
+    }
 
     /**
      *
@@ -102,6 +135,9 @@ class Aktiv_StockOrders_Statistics_Export_Csv extends Core_Export_Csv {
         } else if ($this->_mode == 'month') {
             $startDay = date("Y-m-01");
             $endDay = date("Y-m-t");
+        } else if($this->_mode == 'custom') {
+            $startDay = $this->_dateFrom;
+            $endDay = $this->_dateTo;
         }
 
         if ($startDay !== null && $endDay !== null) {

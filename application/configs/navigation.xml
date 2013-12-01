@@ -6,6 +6,14 @@
             <route>default-index-index</route>
             <resource>default:index</resource>
             <privilege>index</privilege>
+            <pages>
+                <custom_statistics>
+                    <label>CUSTOM_STATISTICS</label>
+                    <route>default-stock-orders-statistics</route>
+                    <resource>default:stock-orders</resource>
+                    <privilege>statistics</privilege>
+                </custom_statistics>
+            </pages>
         </home>
         <users>
             <label>USERS</label>

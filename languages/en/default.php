@@ -108,5 +108,7 @@ return array(
     'VIEW_CLIENT' => 'View Client',
     'FEE_INCOME' => 'Fee Income',
     'CHANGELOG' => 'Change log',
-    'BUILD_MODE' => 'Build Mode'
+    'BUILD_MODE' => 'Build Mode',
+    'CUSTOM_STATISTICS' => 'Custom Statistics',
+    'GENERATE' => 'Generate',
 );

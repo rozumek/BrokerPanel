@@ -218,11 +218,12 @@ class Aktiv_User_Form extends Core_Form
      *
      * @return \Aktiv_Form
      */
-    public function addDateFrom()
+    public function addDateFrom($required=false)
     {
         $date = new Core_Form_Element_SelectDate('date_from');
         $date->setLabel('DATE_FROM')
-                ->setOrder(11);
+                ->setOrder(11)
+                ->setRequired((bool)$required);
         $this->addElement($date);
         return $this;
     }
@@ -231,11 +232,12 @@ class Aktiv_User_Form extends Core_Form
      *
      * @return \Aktiv_Form
      */
-    public function addDateTo()
+    public function addDateTo($required=false)
     {
         $date = new Core_Form_Element_SelectDate('date_to');
         $date->setLabel('DATE_TO')
-                ->setOrder(12);
+                ->setOrder(12)
+                ->setRequired((bool)$required);
         $this->addElement($date);
         return $this;
     }
