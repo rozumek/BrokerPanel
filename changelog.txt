@@ -1,9 +1,13 @@
 -------------------------------------------------------------------------------
-Version 1.2
+Version 1.2.0 RC
 
 2013-10-10
 
-    - Fixed Month-statistics error
+    - Administative Tab (/admin/*)
+    - "Blackboard" Tab (/admin/blackboard) - management of communications
+    - Custom Statistics available for admin
+    - Maintanance: Debug Mode - available only during Build mode
+    - Maintanance: Full framework update
 
 -------------------------------------------------------------------------------
 Version 1.1.6
