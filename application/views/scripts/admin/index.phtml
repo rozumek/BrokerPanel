@@ -1,0 +1,13 @@
+<div class="admin broker">
+
+    <?php if (!empty($this->modules)) : ?>
+        <div class="border">
+            <?php foreach ($this->modules as $module): ?>
+                <a href="<?php echo $this->url(array(), $module['route']) ?>">
+                    <?php echo $this->translate($module['label']); ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+
+    <?php endif; ?><h2>
+</div>

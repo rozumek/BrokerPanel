@@ -105,7 +105,7 @@ class Application_Model_Clients extends Core_Model_Db_Abstract implements Cms_Co
             if (!empty($data['name'])) {
                 $client->setName($data['name']);
             }
-            if (!empty($data['emai;'])) {
+            if (!empty($data['email'])) {
                 $client->setEmail($data['email']);
             }
             if (!empty($data['fee'])) {

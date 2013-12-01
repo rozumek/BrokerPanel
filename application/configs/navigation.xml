@@ -102,6 +102,26 @@
                 </edit>
             </pages>
         </clients>
+        <admin>
+            <label>ADMINISTRATION</label>
+            <route>default-admin-index</route>
+            <resource>default:admin</resource>
+            <privilege>index</privilege>
+            <pages>
+                <blackboard>
+                    <label>BLACKBOARD</label>
+                    <route>default-blackboard-index</route>
+                    <resource>default:blackboard</resource>
+                    <privilege>index</privilege>
+                </blackboard>
+                <blackboard_add>
+                    <label>ADD_BLACKBOARD</label>
+                    <route>default-blackboard-add</route>
+                    <resource>default:blackboard</resource>
+                    <privilege>index</privilege>
+                </blackboard_add>
+            </pages>
+        </admin>
         <logout>
             <label>LOGOUT</label>
             <route>default-index-logout</route>

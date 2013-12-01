@@ -213,35 +213,6 @@ class Aktiv_User_Form extends Core_Form
         return $this;
     }
 
-
-    /**
-     *
-     * @return \Aktiv_Form
-     */
-    public function addDateFrom($required=false)
-    {
-        $date = new Core_Form_Element_SelectDate('date_from');
-        $date->setLabel('DATE_FROM')
-                ->setOrder(11)
-                ->setRequired((bool)$required);
-        $this->addElement($date);
-        return $this;
-    }
-
-    /**
-     *
-     * @return \Aktiv_Form
-     */
-    public function addDateTo($required=false)
-    {
-        $date = new Core_Form_Element_SelectDate('date_to');
-        $date->setLabel('DATE_TO')
-                ->setOrder(12)
-                ->setRequired((bool)$required);
-        $this->addElement($date);
-        return $this;
-    }
-
     /**
      *
      * @param array $data

@@ -1,0 +1,33 @@
+<tr class="<?php echo ($this->partialCounter%2)?'even':'odd';?>">
+    <td><?php echo $this->id; ?></td>
+    <td><?php echo $this->title; ?></td>
+    <td><?php echo $this->active; ?></td>
+    <td><?php echo $this->date_from; ?></td>
+    <td><?php echo $this->date_to; ?></td>
+    <td><?php echo $this->ordering; ?></td>
+    <td>
+        <?php if(Core_Acl::isUserAllowed('default:admin', 'edit') && Core_Acl::isUserAllowed('default:blackboard', 'edit')):?>
+        <a href="<?php echo $this->url(
+            array(
+                'controller'=> 'blackboard',
+                'action'=>'edit',
+                'id' => $this->id
+            ),
+            null,
+            true
+        );?>"><?php echo $this->translate('EDIT'); ?></a>
+        <?php endif;?>
+        <?php if(Core_Acl::isUserAllowed('default:admin', 'delete') && Core_Acl::isUserAllowed('default:blackboard', 'delete')):?>
+        &nbsp;
+        <a href="<?php echo $this->url(
+            array(
+                'controller'=> 'blackboard',
+                'action'=>'delete',
+                'id' => $this->id
+            ),
+            null,
+            true
+        );?>"><?php echo $this->translate('DELETE'); ?></a>
+        <?php endif;?>
+    </td>
+</tr>

@@ -226,6 +226,61 @@ class Core_Form extends Zend_Form {
      *
      * @return \Core_Form
      */
+    public function addOrdering() {
+        $ordering = new Zend_Form_Element_Text('ordering');
+        $ordering->setLabel('ORDERING')
+                ->setRequired(true)
+                ->addValidator(new Zend_Validate_Int());
+        $this->addElement($ordering);
+
+        return $this;
+    }
+
+    /**
+     *
+     * @return \Core_Form
+     */
+    public function addTitle() {
+        $title = new Zend_Form_Element_Text('title');
+        $title->setLabel('TITLE')
+                ->setRequired(true);
+        $this->addElement($title);
+
+        return $this;
+    }
+
+    /**
+     *
+     * @return \Aktiv_Form
+     */
+    public function addDateFrom($required=false)
+    {
+        $date = new Core_Form_Element_SelectDate('date_from');
+        $date->setLabel('DATE_FROM')
+                ->setOrder(11)
+                ->setRequired((bool)$required);
+        $this->addElement($date);
+        return $this;
+    }
+
+    /**
+     *
+     * @return \Aktiv_Form
+     */
+    public function addDateTo($required=false)
+    {
+        $date = new Core_Form_Element_SelectDate('date_to');
+        $date->setLabel('DATE_TO')
+                ->setOrder(12)
+                ->setRequired((bool)$required);
+        $this->addElement($date);
+        return $this;
+    }
+
+    /**
+     *
+     * @return \Core_Form
+     */
     public function setReadOnly() {
         foreach ($this->getElements() as $element) {
             if ($element instanceof Zend_Form_Element) {

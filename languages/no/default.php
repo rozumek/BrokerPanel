@@ -110,4 +110,11 @@ return array(
     'BUILD_MODE' => 'Build Mode',
     'CUSTOM_STATISTICS' => 'Tilpassede Statistikk',
     'GENERATE' => 'Generere',
+    'ADMINISTRATION' => 'Administrasjon',
+    'BLACKBOARD' => 'Tavle',
+    'ADD_BLACKBOARD' => 'Legg til Blackboard Entry',
+    'EDIT_BLACKBOARD' => 'Rediger Blackboard Entry',
+    'DELETE_BLACKBOARD' => 'Slett Blackboard Entry',
+    'TITLE' => 'Tittel',
+    'ORDERING' => 'Bestilling',
 );

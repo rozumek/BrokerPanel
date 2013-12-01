@@ -14,9 +14,16 @@ class IndexController extends Cms_Controller_Action {
      */
     protected $_stockOrderModel = null;
 
+    /**
+     *
+     * @var Application_Model_Blackboard
+     */
+    protected $_blackboardModel = null;
+
     public function init() {
         $this->_usersModel = new Application_Model_Users();
         $this->_stockOrderModel = new Application_Model_StockOrders();
+        $this->_blackboardModel = new Application_Model_Blackboard();
 
         $this->_setModuleForRoutes('default');
         $this->_setControllereForRoutes('index');
@@ -30,6 +37,7 @@ class IndexController extends Cms_Controller_Action {
         $this->view->brokerOfAWeek = $this->_stockOrderModel->getBrokerOfAWeek();
         $this->view->brokerOfADay = $this->_stockOrderModel->getBrokerOfADay();
         $this->view->brokerOfAYear = $this->_stockOrderModel->getBrokerOfAYear();
+        $this->view->blackboard = $this->_blackboardModel->getActiveBlackboard()->current();
     }
 
     public function logoutAction() {

@@ -111,4 +111,11 @@ return array(
     'BUILD_MODE' => 'Build Mode',
     'CUSTOM_STATISTICS' => 'Custom Statistics',
     'GENERATE' => 'Generate',
+    'ADMINISTRATION' => 'Administration',
+    'BLACKBOARD' => 'Blackboard',
+    'ADD_BLACKBOARD' => 'Add Blackboard Entry',
+    'EDIT_BLACKBOARD' => 'Edit Blackboard Entry',
+    'DELETE_BLACKBOARD' => 'Delete Blackboard Entry',
+    'TITLE' => 'Title',
+    'ORDERING' => 'Ordering'
 );

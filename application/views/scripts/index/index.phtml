@@ -1,5 +1,7 @@
 <span class="right"><?php echo $this->translate('WELCOME');?> <strong><?php echo $this->userName;?></strong>!</span>
 
+<?php echo $this->partial('partials/blackboard.phtml');?>
+
 <h1><?php echo $this->translate('BROKER_STATISTICS');?></h1>
 <div class="broker-statistics">
 <?php if(!empty($this->brokerOfADay)):?>
