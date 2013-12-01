@@ -1,0 +1,28 @@
+<?php echo $this->form?>
+<div class="wrapper-border">
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th><?php echo $this->translate('Broker');?></th>
+            <th><?php echo $this->translate('TURNOVER');?></th>
+            <th><?php echo $this->translate('FEE_INCOME');?></th>
+        </tr>
+    </thead>
+    <tbody><?php echo $this->partialLoop('stock-orders/partials/table-row-rank.phtml', $this->paginator); ?></tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml');?>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+    <?php if(Core_Acl::isUserAllowed('default:stock-orders', 'export-types') && in_array($this->type, array('week', 'month'))):?>
+        <a href="<?php echo $this->url(array(
+            'action' => 'export'
+        ), null, true);?>?type=<?php echo $this->type?>">
+            <?php echo $this->translate('EXPORT');?>
+        </a>
+    <?php endif;?>
+</div>
