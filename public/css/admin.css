@@ -46,6 +46,7 @@ a{
 #header .inner{
     background: url(../images/admin/header_backgr.png) no-repeat right center;
     padding: 30px;
+    position: relative;
 }
 
 #header .titles{
