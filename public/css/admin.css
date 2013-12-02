@@ -43,7 +43,7 @@ a{
     height: 50px;
 }
 
-#header .inner{    
+#header .inner{
     background: url(../images/admin/header_backgr.png) no-repeat right center;
     padding: 30px;
 }
@@ -53,13 +53,13 @@ a{
 }
 
 #header .title{
-    font: normal 14px 'Open Sans';    
+    font: normal 14px 'Open Sans';
 }
 
 #header .subtitle{
-    font: normal 10px 'Droid Sans'; 
+    font: normal 10px 'Droid Sans';
     color: #696969;
-} 
+}
 
 .languages-list{
     float:right;
@@ -90,7 +90,7 @@ a{
 #navigation{
     height: 76px;
     overflow: hidden;
-    position: relative;    
+    position: relative;
     background: #555555 url(../images/admin/menu_belt_bottom.png);
 }
 
@@ -101,7 +101,7 @@ a{
 
 #navigation ul {
     list-style: none;
-    overflow: hidden;    
+    overflow: hidden;
 }
 
 #navigation ul a {
@@ -120,7 +120,7 @@ a{
 #navigation > ul li:last-child{
     background-image: none;
 }
-    
+
 #navigation > ul > li:last-child{
     float: right;
 }
@@ -130,7 +130,7 @@ a{
 }
 
 #navigation > ul > li ul {
-    display: none;    
+    display: none;
     width: 100%;
 }
 
@@ -156,7 +156,7 @@ a{
 }
 
 #main .inner {
-    padding: 50px 40px    
+    padding: 50px 40px
 }
 
 #main .title{
@@ -176,7 +176,7 @@ form{
     overflow: hidden;
 }
 dl {
-    
+
 }
 
 dl dt{
@@ -200,7 +200,7 @@ input[type="password"], textarea {
     border-radius: 4px;
     font: normal 12px 'Droid Sans';
     padding: 4px;
-    width: 150px;    
+    width: 150px;
 }
 
 input[type="text"], select, input[type="password"] {
@@ -235,27 +235,27 @@ input[type="submit"]{
     color:#ffffff;
     font: normal 12px 'Droid Sans';
     padding: 3px 5px;
-    margin-top: 2px;    
+    margin-top: 2px;
 }
 
-textarea{    
+textarea{
     height: 50px
 }
 
 /*==========================TABLES====================================*/
 
 table{
-    width: 100%;    
+    width: 100%;
     border-collapse: collapse;
 }
 
 table tbody td, table tfoot.format td{
     border: 1px solid #D9D9D9;
     padding: 20px 15px;
-    font: normal 11px 'Droid Sans';    
+    font: normal 11px 'Droid Sans';
 }
 
-table td a{    
+table td a{
     font-weight: bold;
 }
 
@@ -268,7 +268,7 @@ table thead tr th{
 }
 
 table thead tr th{
-  
+
 }
 
 table tbody tr:hover{
@@ -358,7 +358,7 @@ table tbody tr.even{
 /*==========================BROKER STATISTICS====================================*/
 .broker{
     width: 210px;
-    float:left;    
+    float:left;
 }
 
 .broker > a{
@@ -380,4 +380,18 @@ table tbody tr.even{
 
 .broker label{
     font-weight: bold;
+}
+
+/*==========================BLACKBOARD==========================================*/
+
+.blackboard {
+    padding: 20px;
+    margin: 10px 10px 30px 10px;
+    border: 3px solid #535353;
+    background: #E7E7E7;
+    border-radius: 5px;
+}
+
+.blackboard p {
+    font-size: 16px;
 }

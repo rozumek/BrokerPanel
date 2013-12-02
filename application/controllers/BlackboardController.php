@@ -9,7 +9,7 @@ class BlackboardController extends Cms_Controller_Action
         $this->_actionForm = new Application_Form_Blackboard($this->_getIdentity()->getRole());
 
         $this->_setModuleForRoutes('default');
-        $this->_setControllereForRoutes('clients');
+        $this->_setControllereForRoutes('blackboard');
         $this->_setMessagesPrefix('BLACKBOARD');
 
         $this->_setTitle('BLACKBOARD');

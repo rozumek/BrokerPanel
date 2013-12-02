@@ -118,8 +118,15 @@
                     <label>ADD_BLACKBOARD</label>
                     <route>default-blackboard-add</route>
                     <resource>default:blackboard</resource>
-                    <privilege>index</privilege>
+                    <privilege>add</privilege>
                 </blackboard_add>
+                <blackboard_edit>
+                    <label>EDIT_BLACKBOARD</label>
+                    <route>default-blackboard-edit</route>
+                    <resource>default:blackboard</resource>
+                    <privilege>edit</privilege>
+                    <visible>false</visible>
+                </blackboard_edit>
             </pages>
         </admin>
         <logout>

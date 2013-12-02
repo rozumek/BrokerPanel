@@ -240,10 +240,10 @@ class Core_Form extends Zend_Form {
      *
      * @return \Core_Form
      */
-    public function addTitle() {
+    public function addTitle($required=false) {
         $title = new Zend_Form_Element_Text('title');
         $title->setLabel('TITLE')
-                ->setRequired(true);
+                ->setRequired($required);
         $this->addElement($title);
 
         return $this;

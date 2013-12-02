@@ -7,8 +7,8 @@ class Application_Form_Blackboard extends Core_Form {
 
         //add form elements
         $this->addTitle()
-                ->addDateFrom(true)
-                ->addDateTo(true)
+                ->addDateFrom()
+                ->addDateTo()
                 ->addActive()
                 ->addOrdering()
                 ->addText()

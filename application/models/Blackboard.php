@@ -20,18 +20,28 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
 
     /**
      *
+     * @return Zend_Db_Table_Select
+     */
+    protected function _getActiveBlackboardQuery() {
+        $date = date('Y-m-d');
+
+        (string)$query = $this->getDbTable()
+                ->select()
+                ->where('active=1')
+                ->where('date_from <= ? OR date_from = \'0000-00-00 00:00:00\'', $date)
+                ->where('date_to >= ? OR date_to = \'0000-00-00 00:00:00\'', $date)
+                ->order('ordering ASC');
+
+        return $query;
+    }
+
+
+    /**
+     *
      * @return Core_Model_Db_Table_Rowset_Abstract
      */
     public function getActiveBlackboard() {
-        $date = date('Y-m-d');
-
-        $query = $this->getDbTable()
-                ->select()
-                ->where('active=1')
-                ->where('date_from >= ?', $date)
-                ->where('date_to <= ?', $date)
-                ->order('ordering ASC');
-
+        $query = $this->_getActiveBlackboardQuery();
         $rowset = $this->getDbTable()->fetchAll($query);
 
         return $rowset;
@@ -43,15 +53,8 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
      * @return Application_Model_DbTable_Row_BlackboardEntry
      */
     public function getActiveBlackboardEntry($id) {
-        $date = date('Y-m-d');
-
-        $query = $this->getDbTable()
-                ->select()
-                ->where('id=?', $id)
-                ->where('active=1')
-                ->where('date_from >= ?', $date)
-                ->where('date_to <= ?', $date);
-
+        $query = $this->_getActiveBlackboardQuery();
+        $query->where('id=?', $id);
         $entry = $this->getDbTable()->fetchRow($query);
 
         return $entry;
@@ -97,11 +100,18 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
 
         if ($entry instanceof Application_Model_DbTable_Row_BlackboardEntry) {
             $data = (array) $data;
-            $entry->setTitle($data['title']);
             $entry->setText($data['text']);
+            $entry->setTitle(Core_Array::get($data, 'title', ''));
             $entry->setActive(Core_Array::get($data, 'active', 0));
-            $entry->setDateFrom($data['date_from']);
-            $entry->setDateTo($data['date_to']);
+            $entry->setOrdering(Core_Array::get($data, 'ordering', 0));
+
+            if (!empty($data['date_from'])) {
+                $entry->setDateFrom($data['date_from']);
+            }
+
+            if (!empty($data['date_to'])) {
+                $entry->setDateTo($data['date_to']);
+            }
 
             return $this->save($entry);
         }
@@ -132,19 +142,30 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
             $data = (array) $data;
 
             if (array_key_exists('title', $data)) {
-                $entry->setName($data['title']);
+                $entry->setTitle($data['title']);
             }
             if (array_key_exists('text', $data)) {
-                $entry->setEmail($data['text']);
+                $entry->setText($data['text']);
             }
-            if (!empty($data['active'])) {
-                $entry->setFee($data['active']);
+            if (array_key_exists('active', $data)) {
+                $entry->setActive($data['active']);
             }
-            if (!empty($data['date_from'])) {
-                $entry->setBroker($data['date_from']);
+            if (array_key_exists('ordering', $data)) {
+                $entry->setOrdering(Core_Array::get($data, 'ordering', 0));
             }
-            if (!empty($data['date_to'])) {
-                $entry->setBroker($data['date_to']);
+            if (array_key_exists('date_from', $data)) {
+                if(empty($data['date_from'])) {
+                    $entry->setDateFrom('0000-00-00 00:00:00');
+                } else {
+                    $entry->setDateFrom($data['date_from']);
+                }
+            }
+            if (array_key_exists('date_to', $data)) {
+                if(empty($data['date_to'])) {
+                    $entry->setDateTo('0000-00-00 00:00:00');
+                } else {
+                    $entry->setDateTo($data['date_to']);
+                }
             }
 
             return $this->save($entry);
@@ -171,9 +192,9 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
      * @throws Core_Exception
      */
     public function changeState($id) {
-        $entry = $this->getUser($id);
+        $entry = $this->getBlackboardEntry($id);
 
-        if ($entry instanceof Application_Model_DbTable_Row_User) {
+        if ($entry instanceof Application_Model_DbTable_Row_BlackboardEntry) {
             $entry->setActive(!$entry->getActive());
             return $this->save($entry);
         }

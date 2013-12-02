@@ -1,6 +1,7 @@
 <?php if(!empty($this->blackboard)):?>
     <h1><?php echo $this->translate('BLACKBOARD');?></h1>
     <div class="blackboard">
-        <?php echo $this->blackboard;?>
+        <h2><?php echo $this->blackboard['title']?></h2>
+        <p><?php echo $this->blackboard['text'];?></p>
     </div>
 <?php endif;?>

@@ -37,7 +37,10 @@ class IndexController extends Cms_Controller_Action {
         $this->view->brokerOfAWeek = $this->_stockOrderModel->getBrokerOfAWeek();
         $this->view->brokerOfADay = $this->_stockOrderModel->getBrokerOfADay();
         $this->view->brokerOfAYear = $this->_stockOrderModel->getBrokerOfAYear();
-        $this->view->blackboard = $this->_blackboardModel->getActiveBlackboard()->current();
+
+        if($this->_blackboardModel->getActiveBlackboard()->count() > 0) {
+            $this->view->blackboard = $this->_blackboardModel->getActiveBlackboard()->current()->toArray();
+        }
     }
 
     public function logoutAction() {
