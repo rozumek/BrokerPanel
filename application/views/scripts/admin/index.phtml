@@ -1,7 +1,7 @@
 <div class="admin broker">
 
     <?php if (!empty($this->modules)) : ?>
-        <div class="border">
+        <div class="panel border">
             <?php foreach ($this->modules as $module): ?>
                 <a href="<?php echo $this->url(array(), $module['route']) ?>">
                     <?php echo $this->translate($module['label']); ?>
