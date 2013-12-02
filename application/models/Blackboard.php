@@ -104,14 +104,8 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
             $entry->setTitle(Core_Array::get($data, 'title', ''));
             $entry->setActive(Core_Array::get($data, 'active', 0));
             $entry->setOrdering(Core_Array::get($data, 'ordering', 0));
-
-            if (!empty($data['date_from'])) {
-                $entry->setDateFrom($data['date_from']);
-            }
-
-            if (!empty($data['date_to'])) {
-                $entry->setDateTo($data['date_to']);
-            }
+            $entry->setDateFrom(Core_Array::get($data, 'date_from', '0000-00-00 00:00:00'));
+            $entry->setDateTo(Core_Array::get($data, 'date_to', '0000-00-00 00:00:00'));
 
             return $this->save($entry);
         }
