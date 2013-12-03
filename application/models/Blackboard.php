@@ -30,7 +30,8 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
                 ->where('active=1')
                 ->where('date_from <= ? OR date_from = \'0000-00-00 00:00:00\'', $date)
                 ->where('date_to >= ? OR date_to = \'0000-00-00 00:00:00\'', $date)
-                ->order('ordering ASC');
+                ->order(array('ordering ASC', 'created DESC'))
+                ->limit(10);
 
         return $query;
     }
@@ -100,6 +101,7 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
 
         if ($entry instanceof Application_Model_DbTable_Row_BlackboardEntry) {
             $data = (array) $data;
+            $entry->setBroker($data['broker']);
             $entry->setText($data['text']);
             $entry->setTitle(Core_Array::get($data, 'title', ''));
             $entry->setActive(Core_Array::get($data, 'active', 0));
@@ -146,6 +148,9 @@ class Application_Model_Blackboard extends Core_Model_Db_Abstract implements Cms
             }
             if (array_key_exists('ordering', $data)) {
                 $entry->setOrdering(Core_Array::get($data, 'ordering', 0));
+            }
+            if (array_key_exists('broker', $data)) {
+                $entry->setBroker($data['broker']);
             }
             if (array_key_exists('date_from', $data)) {
                 if(empty($data['date_from'])) {

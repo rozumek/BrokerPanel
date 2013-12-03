@@ -168,16 +168,16 @@ class Aktiv_User_Form extends Core_Form
      *
      * @return \Aktiv_Form
      */
-    public function addBroker($acl=false)
+    public function addBroker($acl=false, $oder=9, $resource = 'default:stock-orders')
     {
         $broker = null;
 
-        if($acl === true  && !Core_Acl::isUserAllowed('default:stock-orders', 'select-broker')){
+        if($acl === true  && !Core_Acl::isUserAllowed($resource, 'select-broker')){
             $broker = new Zend_Form_Element_Hidden('broker');
         }else{
             $broker = new Core_Form_Element_User('broker');
             $broker->setLabel("BROKER")
-                    ->setOrder(9);
+                    ->setOrder($oder);
         }
 
         $broker->setRequired(true);

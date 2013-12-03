@@ -117,4 +117,5 @@ return array(
     'DELETE_BLACKBOARD' => 'Slett Blackboard Entry',
     'TITLE' => 'Tittel',
     'ORDERING' => 'Bestilling',
+    'AUTHOR' => 'Forfatter',
 );

@@ -128,5 +128,62 @@ class Application_Model_DbTable_Row_BlackboardEntry extends Core_Model_Db_Table_
         return $this;
     }
 
+    /**
+     *
+     * @return Application_Model_DbTable_Row_User
+     */
+    public function getBroker() {
+        return $this->findParentRow('Application_Model_DbTable_Users');
+    }
 
+    /**
+     *
+     * @return int
+     */
+    public function getBrokerId() {
+        return (int)$this->broker;
+    }
+
+    /**
+     *
+     * @param int $id
+     * @return \Application_Model_DbTable_Row_BlackboardEntry
+     */
+    public function setBroker($id) {
+        $this->broker = (int) $id;
+        return $this;
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getCreated() {
+        return $this->created;
+    }
+
+    /**
+     *
+     * @param string $created
+     * @return \Application_Model_DbTable_Row_BlackboardEntry
+     */
+    public function setCreated($created) {
+        $this->created = $created;
+        return $this;
+    }
+
+    /**
+     *
+     * @return array
+     */
+    public function toArray() {
+        $array = parent::toArray();
+        $broker = $this->getBroker();
+
+        if($broker instanceof Application_Model_DbTable_Row_User) {
+            $array['broker_name'] =  $this->getBroker()->getName();
+        }
+
+        return $array;
+    }
 }

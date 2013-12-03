@@ -1,12 +1,13 @@
 <?php
 
-class Application_Form_Blackboard extends Core_Form {
+class Application_Form_Blackboard extends Aktiv_User_Form {
 
     public function init() {
         $this->initFormSettings();
 
         //add form elements
-        $this->addTitle()
+        $this->addBroker(true, 0, 'default:blackboard')
+                ->addTitle()
                 ->addDateFrom()
                 ->addDateTo()
                 ->addActive()

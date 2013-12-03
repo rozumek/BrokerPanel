@@ -393,6 +393,15 @@ table tbody tr.even{
     border-radius: 5px;
 }
 
+.blackboard .head {
+    overflow: hidden;
+}
+
+.blackboard .body {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
 .blackboard p {
     font-size: 14px;
 }

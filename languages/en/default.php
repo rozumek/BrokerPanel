@@ -117,5 +117,6 @@ return array(
     'EDIT_BLACKBOARD' => 'Edit Blackboard Entry',
     'DELETE_BLACKBOARD' => 'Delete Blackboard Entry',
     'TITLE' => 'Title',
-    'ORDERING' => 'Ordering'
+    'ORDERING' => 'Ordering',
+    'AUTHOR' => 'Author',
 );

@@ -1,7 +1,19 @@
 <?php if(!empty($this->blackboard)):?>
     <h1><?php echo $this->translate('BLACKBOARD');?></h1>
     <div class="blackboard">
-        <h2><?php echo $this->blackboard['title']?></h2>
-        <p><?php echo $this->blackboard['text'];?></p>
+    <?php foreach($this->blackboard as $blackboard):?>
+        <div class="head">
+            <h2 class="left"><?php echo $blackboard['title']?></h2>
+            <span class="right">
+                <strong><?php echo $this->translate('AUTHOR')?>: </strong>
+                <?php echo $blackboard['broker_name']?><br/>
+                <strong><?php echo $this->translate('CREATED')?>: </strong>
+                <?php echo $blackboard['created']?>
+            </span>
+        </div>
+        <div class="body">
+            <p><?php echo $blackboard['text'];?></p>
+        </div>
+    <?php endforeach;?>
     </div>
 <?php endif;?>

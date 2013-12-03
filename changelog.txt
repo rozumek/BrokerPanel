@@ -1,11 +1,20 @@
 -------------------------------------------------------------------------------
-Version 1.2.1 RC
+Version 1.2.2 RC
+
+2013-12-03
+
+    - Blackboard enchancements:
+        - Information which user posted entry
+        - Couple number of entries instead of one
+
+-------------------------------------------------------------------------------
+Version 1.2.1
 
 2013-12-03
 
     - Custom statistics enchancements:
         - Date from and date to validation
-        - Innitial date from 1 day of a month and innitial date to current day 
+        - Innitial date from 1 day of a month and innitial date to current day
 
 -------------------------------------------------------------------------------
 Version 1.2.0

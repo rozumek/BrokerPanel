@@ -32,7 +32,13 @@ class Application_Model_DbTable_Blackboard extends Core_Model_Db_Table_Abstract
      * @var array
      */
     protected $_referenceMap = array(
-
+        'Broker' => array(
+            'columns'           => array('broker'),
+            'refTableClass'     => 'Application_Model_DbTable_Users',
+            'refColumns'        => array('id'),
+            'onDelete'          => self::CASCADE,
+            'onUpdate'          => self::CASCADE,
+        )
     );
 
     /**
@@ -66,10 +72,14 @@ class Application_Model_DbTable_Blackboard extends Core_Model_Db_Table_Abstract
             $query->where('active = ?', $filters['active']);
         }
 
+        if(!empty($filters['broker'])){
+            $query->where('broker = ?', $filters['broker']);
+        }
+
         if(!empty($sort)){
             $query->order($sort);
         } else {
-            $query->order('ordering ASC');
+            $query->order(array('ordering ASC', 'created DESC'));
         }
 
         return $query;
