@@ -139,13 +139,23 @@ class StockOrdersController extends Cms_Controller_Action {
     public function statisticsAction() {
         $form = new Application_Form_Statistics();
 
-        $this->view->form = $form;
-        $this->_setTitle('CUSTOM_STATISTICS');
+        $firstDay = date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')));
+        $currDate = date('Y-m-d');
 
         if($this->getRequest()->isPost()) {
-            $data = $this->getRequest()->getPost();
-            $this->exportAction(true, $data['date_from'], $data['date_to']);
+            $formParams = $this->getRequest()->getPost();
+
+            if($form->isValid($formParams)) {
+                $data = $this->getRequest()->getPost();
+                $this->exportAction(true, $data['date_from'], $data['date_to']);
+            }
         }
+
+        $form->getElement('date_from')->setValue($firstDay);
+        $form->getElement('date_to')->setValue($currDate);
+
+        $this->view->form = $form;
+        $this->_setTitle('CUSTOM_STATISTICS');
     }
 
     protected function _setDefaultFilters() {
