@@ -17,7 +17,7 @@ class BlackboardController extends Cms_Controller_Action
 
     public function addAction()
     {
-        if (!Core_Acl::isUserAllowed('default:stock-orders', 'select-broker')) {
+        if (!Core_Acl::isUserAllowed('default:blackboard', 'select-broker')) {
             if ($this->getRequest()->isPost()) {
                 $brokerId = $this->_getIdentity()->getId();
                 $requestBrokerId = $this->getRequest()->getPost('broker', 0);
